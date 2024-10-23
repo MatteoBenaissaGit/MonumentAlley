@@ -9,6 +9,8 @@ namespace Game
     {
         public bool IsActive = true;
         public BlockController Block;
+        public bool ForceDirection;
+        public Vector2Int Direction;
     }
 
     public class BlockController : MonoBehaviour

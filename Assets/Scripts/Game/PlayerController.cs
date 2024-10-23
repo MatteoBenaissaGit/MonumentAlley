@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using DG.Tweening;
 using Game;
+using IshLib.Pathfinding;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
@@ -31,7 +32,14 @@ public class PlayerController : MonoBehaviour
         for (int i = 1; i < path.Count; i++)
         {
             _moveSequence.Append(transform.DOMove(path[i].WalkPoint, 0.35f).SetEase(Ease.Linear));
-            _moveSequence.Join(transform.DOLookAt(path[i].WalkPoint, 0.1f, AxisConstraint.Y, Vector3.up).SetEase(Ease.Linear));
+
+            Vector3 pointToLook = path[i].WalkPoint;
+            var pathToNewBlock = path[i-1].Paths.Find(x => x.Block == path[i]);
+            if (pathToNewBlock.ForceDirection)
+            {
+                 pointToLook = path[i].WalkPoint+ new Vector3(pathToNewBlock.Direction.x, 0, pathToNewBlock.Direction.y);
+            }
+            _moveSequence.Join(transform.DOLookAt(pointToLook, 0.1f, AxisConstraint.Y, Vector3.up).SetEase(Ease.Linear));
         }
         _moveSequence.AppendCallback(() => _animator.SetBool(Walking, false));
         
@@ -40,33 +48,30 @@ public class PlayerController : MonoBehaviour
 
     private List<BlockController> GetPathTo(BlockController from, BlockController to)
     {
-        List<BlockController> previousBlocks = new();
-        List<BlockController> path = new();
+        List<BlockController> path = Dijkstra.GetClosestNode(from,
+            GetDistanceBetweenTiles,
+            (currentNode) => GetNeighbours(currentNode.Node),
+            (currentNode) => currentNode.Node == to);
 
-        List<BlockController> pathTo = RecursivePathSearch(previousBlocks, from, to, path);
-        return pathTo;
+        return path;
     }
 
-    
-    private List<BlockController> RecursivePathSearch(List<BlockController> previous, BlockController current, BlockController destination, List<BlockController> path)
+    private BlockController[] GetNeighbours(BlockController currentBlock)
     {
-        List<BlockController> localPath = new List<BlockController>(path) { current };
-
-        if (current == destination)
+        List<BlockController> neighbors = new List<BlockController>();
+        
+        foreach (BlockPath path in currentBlock.Paths)
         {
-            return localPath;
+            if (path.IsActive == false) continue;
+            neighbors.Add(path.Block);
         }
+        
+        return neighbors.ToArray();
+    }
 
-        List<BlockController> localPrevious = new (previous) { current };
-
-        foreach (BlockPath neighbor in current.Paths)
-        {
-            if (neighbor.IsActive == false || previous.Contains(neighbor.Block)) continue;
-            List<BlockController> neighborPath = RecursivePathSearch(localPrevious, neighbor.Block, destination, localPath);
-            if (neighborPath != null) return neighborPath;
-        }
-
-        return null;
+    private float GetDistanceBetweenTiles(BlockController origin, BlockController destination)
+    {
+        return Vector3.Distance(origin.transform.position, destination.transform.position);
     }
     
     private BlockController GetBlockDown()
