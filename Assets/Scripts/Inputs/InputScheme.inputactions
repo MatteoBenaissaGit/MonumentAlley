@@ -1,0 +1,54 @@
+{
+    "name": "InputScheme",
+    "maps": [
+        {
+            "name": "ActionMap",
+            "id": "ede5adfe-2d74-4c3a-879e-bd61eb177ca1",
+            "actions": [
+                {
+                    "name": "Touch",
+                    "type": "Value",
+                    "id": "39f64810-dd01-4cce-b66f-e2786398d5aa",
+                    "expectedControlType": "Touch",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
+                    "name": "Click",
+                    "type": "Button",
+                    "id": "14ba2448-3682-4b44-8ded-28371201cbee",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "ef7ce723-b4fd-4865-a912-d76a7ac06f24",
+                    "path": "<Touchscreen>/primaryTouch",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Touch",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "319fedda-59f0-4d0a-8448-743fedbaf8c7",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Click",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}
