@@ -63,7 +63,16 @@ namespace Game
                 if (neighbor.Block == null) continue;
             
                 Gizmos.color = neighbor.IsActive ? Color.green : Color.red;
-                Gizmos.DrawLine(WalkPoint, neighbor.Block.WalkPoint);
+                Vector3 startPoint = WalkPoint;
+                Vector3 endPoint = neighbor.Block.WalkPoint;
+                
+                Vector3 direction = (endPoint - startPoint).normalized;
+                Vector3 normal = new Vector3(-direction.z, 0, direction.x);
+                Vector3 offset = normal * 0.1f;
+                Vector3 middlePoint = (startPoint + endPoint) / 2 + offset;
+                
+                Gizmos.DrawLine(startPoint, middlePoint);
+                Gizmos.DrawLine(middlePoint, endPoint);
             }
         }
 
