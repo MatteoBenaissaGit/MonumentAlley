@@ -7,10 +7,10 @@ namespace Game
     {
         [SerializeField] private TouchEffect _touchEffectPrefab;
         
-        public void TouchEffectAt(Vector3 position)
+        public void TouchEffectAt(Vector3 position, Vector3 up)
         {
             TouchEffect touchEffect = Instantiate(_touchEffectPrefab, transform);
-            touchEffect.Play(position);
+            touchEffect.Play(position, up);
         }
     }
 }

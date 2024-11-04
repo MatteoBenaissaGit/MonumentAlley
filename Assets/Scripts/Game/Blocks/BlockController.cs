@@ -12,21 +12,54 @@ namespace Game
         public bool ForceDirection;
         public Vector2Int Direction;
     }
+    
+    public enum BlockType
+    {
+        Normal = 0,
+        Stair = 1,
+        Ladder = 2
+    }
 
     public class BlockController : MonoBehaviour
     {
-        public Vector3 WalkPoint => transform.position + _walkPoint;
+        public Vector3 WalkPoint
+        {
+            get
+            {
+                if (_localRelative)
+                {
+                    Vector3 up = transform.up * _walkPoint.y;
+                    Vector3 right = transform.right * _walkPoint.x;
+                    Vector3 forward = transform.forward * _walkPoint.z;
+                    return transform.position + up + right + forward;
+                }
+                return transform.position + _walkPoint;
+            }
+        }
         public List<BlockPath> Paths => _paths;
+        public BlockType Type => _type;
     
         [SerializeField] private Vector3 _walkPoint;
+        [SerializeField] private bool _localRelative;
         [SerializeField] private List<BlockPath> _paths;
-        [SerializeField] private bool _isStair;
+        [SerializeField] private BlockType _type;
 
-        public void AddNeighbors(BlockController block)
+        private Dictionary<BlockController, BlockPath> _pathsToBlocks;
+
+        private void Start()
+        {
+            _pathsToBlocks = new Dictionary<BlockController, BlockPath>();
+            foreach (BlockPath path in _paths)
+            {
+                _pathsToBlocks.Add(path.Block, path);
+            }
+        }
+
+        public void AddNeighbors(BlockController block, bool isActive = true)
         {
             if (_paths.Exists(x => x.Block == block)) return;
         
-            _paths.Add(new BlockPath(){ IsActive = true, Block = block});
+            _paths.Add(new BlockPath(){ IsActive = isActive, Block = block});
         }
 
         public void RemoveNeighbors(BlockController block)
@@ -36,8 +69,13 @@ namespace Game
             _paths.Remove(_paths.Find(x => x.Block == block));
         }
 
-        public void ClearNeighborsList()
+        public void ClearNeighborsList(bool clearAll = false)
         {
+            if (clearAll)
+            {
+                _paths = new();
+            }
+            
             List<int> indexToRemove = new();
             for (var i = 0; i < _paths.Count; i++)
             {
@@ -45,6 +83,15 @@ namespace Game
                 if (path.Block == null) indexToRemove.Add(i);
             }
             indexToRemove.ForEach(index => _paths.RemoveAt(index));
+        }
+
+        public void SetPathToActive(BlockController to, bool isActive)
+        {
+            if (_pathsToBlocks.TryGetValue(to, out BlockPath path) == false)
+            {
+                return;
+            }
+            path.IsActive = isActive;
         }
 
 #if UNITY_EDITOR
@@ -78,7 +125,7 @@ namespace Game
 
         private void DrawWalkPoint()
         {
-            Vector3 position = transform.position + _walkPoint;
+            Vector3 position = WalkPoint;
             Gizmos.color = Color.gray;
             Gizmos.DrawSphere(position, 0.1f);
         }

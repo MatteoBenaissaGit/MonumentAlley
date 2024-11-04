@@ -13,8 +13,7 @@ namespace Game.Blocks
     {
         [field:SerializeField] public BlockController Block { get; private set; }
         [field:SerializeField] public BlockController ToBlock { get; private set; }
-        [field:SerializeField] public bool SetActive { get; private set; }
-        [field:SerializeField] public int[] AtStep { get; private set; }
+        [field: SerializeField] public List<int> ActiveSteps { get; private set; } = new();
     }
     
     public abstract class MovingPart : MonoBehaviour
@@ -23,9 +22,9 @@ namespace Game.Blocks
         [SerializeField] private List<Renderer> _glowingParts;
 
         [Header("Blocks")] 
-        [SerializeField] protected List<BlockMoveStepPath> _activeBlockSteps;
-        [SerializeField] protected int _numberOfSteps;
-        [SerializeField] protected int _startStep;
+        [SerializeField] protected List<BlockMoveStepPath> ActiveBlockSteps;
+        [SerializeField] protected int NumberOfSteps;
+        [SerializeField] protected int StartStep;
         
         protected int CurrentStep { get; set; }
         protected float CurrentMovementStep { get; set; }
@@ -36,7 +35,7 @@ namespace Game.Blocks
 
         private void Start()
         {
-            SetStep(_startStep);
+            SetStep(StartStep);
         }
         
         protected void Update()
@@ -96,6 +95,21 @@ namespace Game.Blocks
         protected virtual void SetStep(int step)
         {
             CurrentStep = step;
-        } 
+            
+            foreach (BlockMoveStepPath blockMoveStepPath in ActiveBlockSteps)
+            {
+                bool isActive = blockMoveStepPath.ActiveSteps.Contains(step);
+                blockMoveStepPath.Block.SetPathToActive(blockMoveStepPath.ToBlock, isActive);
+                blockMoveStepPath.ToBlock.SetPathToActive(blockMoveStepPath.Block, isActive);
+            }
+        }
+
+        protected void DisableAllPaths()
+        {
+            foreach (BlockMoveStepPath blockMoveStepPath in ActiveBlockSteps)
+            {
+                blockMoveStepPath.Block.SetPathToActive(blockMoveStepPath.ToBlock, false);
+            }
+        }
     }
 }

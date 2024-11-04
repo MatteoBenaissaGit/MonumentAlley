@@ -17,8 +17,10 @@ namespace DefaultNamespace
             _touchCircleSprite.color = new Color(1f, 1f, 1f, 0f);
         }
 
-        public void Play(Vector3 point)
+        public void Play(Vector3 point, Vector3 up)
         {
+            _touchCircleSprite.transform.forward = up;
+            
             Vector2 screenPoint = Camera.main.WorldToScreenPoint(point);
             _touchCircle.transform.position = screenPoint;
             _touchCircleSprite.transform.position = point + Vector3.up * 0.1f;

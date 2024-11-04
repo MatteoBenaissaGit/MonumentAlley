@@ -42,8 +42,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4014828849430287439}
-  - component: {fileID: 3356858735117202876}
   - component: {fileID: 8656781972328663089}
+  - component: {fileID: 3356858735117202876}
   m_Layer: 0
   m_Name: MovingPartRotation
   m_TagString: Untagged
@@ -68,6 +68,28 @@ Transform:
   - {fileID: 314674888347492454}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8656781972328663089
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1766338520771577547}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b19edab39a3437baaa4202d2baf954e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _glowingParts:
+  - {fileID: 6362406142463758586}
+  - {fileID: 4885575370846183848}
+  ActiveBlockSteps: []
+  NumberOfSteps: 0
+  StartStep: 0
+  _rotationAxis: {x: 1, y: 0, z: 0}
+  _inverseHorizontal: 1
+  _inverseVertical: 0
+  _rotationSpeedMultiplier: 0.5
 --- !u!65 &3356858735117202876
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -89,28 +111,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &8656781972328663089
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1766338520771577547}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9b19edab39a3437baaa4202d2baf954e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _glowingParts:
-  - {fileID: 6362406142463758586}
-  - {fileID: 4885575370846183848}
-  _activeBlockSteps: []
-  _numberOfSteps: 0
-  _startStep: 0
-  _rotationAxis: {x: 1, y: 0, z: 0}
-  _inverseHorizontal: 1
-  _inverseVertical: 0
-  _rotationSpeedMultiplier: 0.5
 --- !u!1 &4847444185218561471
 GameObject:
   m_ObjectHideFlags: 0

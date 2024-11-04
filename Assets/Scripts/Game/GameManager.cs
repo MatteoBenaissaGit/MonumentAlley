@@ -38,7 +38,8 @@ namespace Game
                 }
                 else if (hit.transform.gameObject.TryGetComponent(out BlockController block))
                 {
-                    _ui.TouchEffectAt(block.WalkPoint);
+                    Vector3 up = (block.WalkPoint - block.transform.position).normalized;
+                    _ui.TouchEffectAt(block.WalkPoint, up);
                     _player.GoToBlock(block);
                 }
             }

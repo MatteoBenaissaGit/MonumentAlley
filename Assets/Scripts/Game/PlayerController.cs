@@ -31,8 +31,10 @@ public class PlayerController : MonoBehaviour
         _moveSequence.AppendCallback(() => _animator.SetBool(Walking, true));
         for (int i = 1; i < path.Count; i++)
         {
+            //move
             _moveSequence.Append(transform.DOMove(path[i].WalkPoint, 0.35f).SetEase(Ease.Linear));
 
+            //look
             Vector3 pointToLook = path[i].WalkPoint;
             var pathToNewBlock = path[i-1].Paths.Find(x => x.Block == path[i]);
             if (pathToNewBlock.ForceDirection)
@@ -40,6 +42,10 @@ public class PlayerController : MonoBehaviour
                  pointToLook = path[i].WalkPoint+ new Vector3(pathToNewBlock.Direction.x, 0, pathToNewBlock.Direction.y);
             }
             _moveSequence.Join(transform.DOLookAt(pointToLook, 0.1f, AxisConstraint.Y, Vector3.up).SetEase(Ease.Linear));
+            
+            //parent
+            Transform currentBlockTransform = path[i].transform;
+            _moveSequence.JoinCallback(() => transform.parent = currentBlockTransform);
         }
         _moveSequence.AppendCallback(() => _animator.SetBool(Walking, false));
         
