@@ -968,6 +968,10 @@ PrefabInstance:
       propertyPath: _paths.Array.data[1].IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5902866094027664098, guid: 258f01a9dace50d4893ae092b4afddeb, type: 3}
+      propertyPath: m_Name
+      value: SideOne_2
+      objectReference: {fileID: 0}
     - target: {fileID: 6819465190405512271, guid: 258f01a9dace50d4893ae092b4afddeb, type: 3}
       propertyPath: m_LocalPosition.x
       value: 1
@@ -1832,15 +1836,31 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5086080364371959050, guid: 258f01a9dace50d4893ae092b4afddeb, type: 3}
       propertyPath: _paths.Array.size
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5086080364371959050, guid: 258f01a9dace50d4893ae092b4afddeb, type: 3}
       propertyPath: _paths.Array.data[0].Block
       value: 
       objectReference: {fileID: 1959114194}
     - target: {fileID: 5086080364371959050, guid: 258f01a9dace50d4893ae092b4afddeb, type: 3}
+      propertyPath: _paths.Array.data[1].Block
+      value: 
+      objectReference: {fileID: 1307649918}
+    - target: {fileID: 5086080364371959050, guid: 258f01a9dace50d4893ae092b4afddeb, type: 3}
       propertyPath: _paths.Array.data[0].IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5086080364371959050, guid: 258f01a9dace50d4893ae092b4afddeb, type: 3}
+      propertyPath: _paths.Array.data[1].IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5169749106242269444, guid: 258f01a9dace50d4893ae092b4afddeb, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5902866094027664098, guid: 258f01a9dace50d4893ae092b4afddeb, type: 3}
+      propertyPath: m_Name
+      value: SideOne_3
       objectReference: {fileID: 0}
     - target: {fileID: 6819465190405512271, guid: 258f01a9dace50d4893ae092b4afddeb, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1951,7 +1971,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6746756409918628339, guid: d2903749b18790d4cb454d5f55ab1837, type: 3}
       propertyPath: _paths.Array.size
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 6746756409918628339, guid: d2903749b18790d4cb454d5f55ab1837, type: 3}
       propertyPath: _paths.Array.data[0].Block
@@ -1964,7 +1984,7 @@ PrefabInstance:
     - target: {fileID: 6746756409918628339, guid: d2903749b18790d4cb454d5f55ab1837, type: 3}
       propertyPath: _paths.Array.data[2].Block
       value: 
-      objectReference: {fileID: 7238717060820314854}
+      objectReference: {fileID: 824382170}
     - target: {fileID: 6746756409918628339, guid: d2903749b18790d4cb454d5f55ab1837, type: 3}
       propertyPath: _paths.Array.data[3].Block
       value: 
@@ -1979,7 +1999,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6746756409918628339, guid: d2903749b18790d4cb454d5f55ab1837, type: 3}
       propertyPath: _paths.Array.data[2].IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6746756409918628339, guid: d2903749b18790d4cb454d5f55ab1837, type: 3}
       propertyPath: _paths.Array.data[3].IsActive
@@ -2889,14 +2909,22 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8656781972328663089, guid: 8ae745331a741a442942e1cdce61719b, type: 3}
       propertyPath: ActiveBlockSteps.Array.size
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8656781972328663089, guid: 8ae745331a741a442942e1cdce61719b, type: 3}
       propertyPath: ActiveBlockSteps.Array.data[0].<Block>k__BackingField
       value: 
       objectReference: {fileID: 7238717060820314853}
     - target: {fileID: 8656781972328663089, guid: 8ae745331a741a442942e1cdce61719b, type: 3}
+      propertyPath: ActiveBlockSteps.Array.data[1].<Block>k__BackingField
+      value: 
+      objectReference: {fileID: 824382170}
+    - target: {fileID: 8656781972328663089, guid: 8ae745331a741a442942e1cdce61719b, type: 3}
       propertyPath: ActiveBlockSteps.Array.data[0].<ToBlock>k__BackingField
+      value: 
+      objectReference: {fileID: 1307649918}
+    - target: {fileID: 8656781972328663089, guid: 8ae745331a741a442942e1cdce61719b, type: 3}
+      propertyPath: ActiveBlockSteps.Array.data[1].<ToBlock>k__BackingField
       value: 
       objectReference: {fileID: 1307649918}
     - target: {fileID: 8656781972328663089, guid: 8ae745331a741a442942e1cdce61719b, type: 3}
@@ -2904,8 +2932,16 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8656781972328663089, guid: 8ae745331a741a442942e1cdce61719b, type: 3}
+      propertyPath: ActiveBlockSteps.Array.data[1].<ActiveSteps>k__BackingField.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8656781972328663089, guid: 8ae745331a741a442942e1cdce61719b, type: 3}
       propertyPath: ActiveBlockSteps.Array.data[0].<ActiveSteps>k__BackingField.Array.data[0]
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8656781972328663089, guid: 8ae745331a741a442942e1cdce61719b, type: 3}
+      propertyPath: ActiveBlockSteps.Array.data[1].<ActiveSteps>k__BackingField.Array.data[0]
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
@@ -3082,6 +3118,10 @@ PrefabInstance:
     - target: {fileID: 5086080364371959050, guid: 258f01a9dace50d4893ae092b4afddeb, type: 3}
       propertyPath: _paths.Array.data[0].ForceDirection
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5902866094027664098, guid: 258f01a9dace50d4893ae092b4afddeb, type: 3}
+      propertyPath: m_Name
+      value: SideOne_1
       objectReference: {fileID: 0}
     - target: {fileID: 6819465190405512271, guid: 258f01a9dace50d4893ae092b4afddeb, type: 3}
       propertyPath: m_LocalPosition.x

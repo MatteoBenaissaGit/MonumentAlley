@@ -82,14 +82,13 @@ public class PlayerController : MonoBehaviour
     
     private BlockController GetBlockDown()
     {
-        RaycastHit[] hits = new RaycastHit[8];
-        Ray ray = new Ray() { origin = transform.position + Vector3.up, direction = Vector3.down };
-        int cast = Physics.RaycastNonAlloc(ray, hits, 10);
-        for (int i = 0; i < cast; i++)
+        Vector3 origin = transform.position + Vector3.up * 0.1f;
+        Vector3 direction = Vector3.down;
+        if (Physics.Raycast(origin,direction, out RaycastHit hit, 1))
         {
-            if (hits[i].transform.gameObject == null || hits[i].transform.gameObject.TryGetComponent(out BlockController block) == false)
+            if (hit.transform.gameObject.TryGetComponent(out BlockController block) == false)
             {
-                continue;
+                return null;
             }
             return block;
         }

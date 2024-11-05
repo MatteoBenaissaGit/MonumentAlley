@@ -46,7 +46,7 @@ namespace Game
 
         private Dictionary<BlockController, BlockPath> _pathsToBlocks;
 
-        private void Start()
+        private void Awake()
         {
             _pathsToBlocks = new Dictionary<BlockController, BlockPath>();
             foreach (BlockPath path in _paths)

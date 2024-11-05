@@ -45,8 +45,6 @@ namespace Game.Blocks
 
         public void GetPressed(Vector2 position)
         {
-            Debug.Log("pressed");
-            
             IsPressed = true;
             LastPressedPosition = position;
 
@@ -63,8 +61,6 @@ namespace Game.Blocks
         public void GetReleased()
         {
             if (IsPressed == false) return;
-            
-            Debug.Log("released");
             
             IsPressed = false;
             

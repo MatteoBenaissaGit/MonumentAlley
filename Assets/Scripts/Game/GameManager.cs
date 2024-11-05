@@ -31,12 +31,13 @@ namespace Game
             Ray ray = _camera.ScreenPointToRay(position);
             if (Physics.Raycast(ray, out RaycastHit hit, 100))
             {
-                if (hit.transform.gameObject.TryGetComponent(out MovingPart movingPart))
+                GameObject hitGameObject = hit.transform.gameObject;
+                if (hitGameObject.TryGetComponent(out MovingPart movingPart))
                 {
                     movingPart.GetPressed(position);
                     _currentMovingPartPressed = movingPart;
                 }
-                else if (hit.transform.gameObject.TryGetComponent(out BlockController block))
+                else if (hitGameObject.TryGetComponent(out BlockController block))
                 {
                     Vector3 up = (block.WalkPoint - block.transform.position).normalized;
                     _ui.TouchEffectAt(block.WalkPoint, up);
