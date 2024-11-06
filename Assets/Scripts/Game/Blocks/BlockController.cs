@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using Game.Blocks;
 using UnityEngine;
 
 namespace Game
@@ -38,6 +39,7 @@ namespace Game
         }
         public List<BlockPath> Paths => _paths;
         public BlockType Type => _type;
+        public MovingPart MovingPart { get; set; }
     
         [SerializeField] private Vector3 _walkPoint;
         [SerializeField] private bool _localRelative;

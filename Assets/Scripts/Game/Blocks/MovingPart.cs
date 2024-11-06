@@ -25,10 +25,11 @@ namespace Game.Blocks
         [SerializeField] protected List<BlockMoveStepPath> ActiveBlockSteps;
         [SerializeField] protected int NumberOfSteps;
         [SerializeField] protected int StartStep;
-        
-        protected int CurrentStep { get; set; }
+
+        public int CurrentStep { get; set; }
+        public bool IsPressed { get; set; }
         protected float CurrentMovementStep { get; set; }
-        protected bool IsPressed { get; set; }
+        protected bool CanBeMoved { get; set; } = true;
         protected Vector2 LastPressedPosition { get; set; }
 
         private static readonly int Glowing = Shader.PropertyToID("_Glowing");
@@ -36,7 +37,16 @@ namespace Game.Blocks
         private void Start()
         {
             SetStep(StartStep);
+            BlockController[] blocks = GetComponentsInChildren<BlockController>();
+            foreach (BlockController block in blocks)
+            {
+                block.MovingPart = this;
+            }
+            
+            InternalStart();
         }
+
+        protected abstract void InternalStart();
         
         protected void Update()
         {
@@ -45,6 +55,8 @@ namespace Game.Blocks
 
         public void GetPressed(Vector2 position)
         {
+            if (IsPressed || CanBeMoved == false) return;
+            
             IsPressed = true;
             LastPressedPosition = position;
 
@@ -107,5 +119,17 @@ namespace Game.Blocks
                 blockMoveStepPath.Block.SetPathToActive(blockMoveStepPath.ToBlock, false);
             }
         }
+
+        public abstract void PlayerIsOnMovingPart(bool playerIsOn);
+        
+        protected void SetCanBeMoved(bool canBeMoved)
+        {
+            if (CanBeMoved == canBeMoved) return;
+            
+            CanBeMoved = canBeMoved;
+            SetCanBeMovedInternal(canBeMoved);
+        }
+
+        protected abstract void SetCanBeMovedInternal(bool canBeMoved);
     }
 }

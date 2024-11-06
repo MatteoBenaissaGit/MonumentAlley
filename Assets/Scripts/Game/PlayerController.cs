@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using DG.Tweening;
 using Game;
+using Game.Blocks;
 using IshLib.Pathfinding;
 using UnityEngine;
 
@@ -23,6 +24,8 @@ public class PlayerController : MonoBehaviour
         var currentBlock = GetBlockDown();
         if (currentBlock == null) return;
 
+        MovingPart movingPart = currentBlock.MovingPart;
+        
         List<BlockController> path = GetPathTo(currentBlock, block);
         if (path == null) return;
 
@@ -31,18 +34,34 @@ public class PlayerController : MonoBehaviour
         _moveSequence.AppendCallback(() => _animator.SetBool(Walking, true));
         for (int i = 1; i < path.Count; i++)
         {
+            BlockController pathBlock = path[i];
+            
             //move
             _moveSequence.Append(transform.DOMove(path[i].WalkPoint, 0.35f).SetEase(Ease.Linear));
 
             //look
-            Vector3 pointToLook = path[i].WalkPoint;
-            var pathToNewBlock = path[i-1].Paths.Find(x => x.Block == path[i]);
+            Vector3 pointToLook = pathBlock.WalkPoint;
+            var pathToNewBlock = path[i-1].Paths.Find(x => x.Block == pathBlock);
             if (pathToNewBlock.ForceDirection)
             {
-                 pointToLook = path[i].WalkPoint+ new Vector3(pathToNewBlock.Direction.x, 0, pathToNewBlock.Direction.y);
+                pointToLook = path[i].WalkPoint+ new Vector3(pathToNewBlock.Direction.x, 0, pathToNewBlock.Direction.y);
             }
             _moveSequence.Join(transform.DOLookAt(pointToLook, 0.1f, AxisConstraint.Y, Vector3.up).SetEase(Ease.Linear));
             
+            //moving part
+            if (pathBlock.MovingPart != null && pathBlock.MovingPart != movingPart)
+            {
+                int step = pathBlock.MovingPart.CurrentStep;
+                _moveSequence.JoinCallback(() => CheckMovingPartAtPlayerPath(pathBlock.MovingPart, _moveSequence, step));
+                _moveSequence.JoinCallback(() => pathBlock.MovingPart.PlayerIsOnMovingPart(true));
+            }
+            if (pathBlock.MovingPart != movingPart && movingPart != null)
+            {
+                MovingPart part = movingPart;
+                _moveSequence.JoinCallback(() => part.PlayerIsOnMovingPart(false));
+                movingPart = null;
+            }
+
             //parent
             Transform currentBlockTransform = path[i].transform;
             _moveSequence.JoinCallback(() => transform.parent = currentBlockTransform);
@@ -50,6 +69,13 @@ public class PlayerController : MonoBehaviour
         _moveSequence.AppendCallback(() => _animator.SetBool(Walking, false));
         
         _moveSequence.Play();
+    }
+
+    private void CheckMovingPartAtPlayerPath(MovingPart part, Sequence pathSequence, int step)
+    {
+        if (part.IsPressed == false && step == part.CurrentStep) return;
+        pathSequence.Kill();
+        _animator.SetBool(Walking, false);
     }
 
     private List<BlockController> GetPathTo(BlockController from, BlockController to)

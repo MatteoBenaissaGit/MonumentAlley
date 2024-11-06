@@ -18,12 +18,25 @@ namespace Game.Blocks
         [SerializeField] private bool _inverseVertical;
         [SerializeField] private float _rotationSpeedMultiplier = 1;
 
+        [Header("Visual")] 
+        [SerializeField] private GameObject _handle;
+
+        private Vector3 _baseHandleLocalScale;
         private float _currentRotationAmount;
-        
-        protected override void InternalPressed()
+
+        protected override void InternalStart()
         {
+            _baseHandleLocalScale = _handle.transform.localScale;
         }
 
+        protected override void InternalPressed()
+        {
+            _rotationTween?.Kill();
+            DisableAllPaths();
+            CurrentStep = -1;
+        }
+
+        private Tween _rotationTween;
         protected override void InternalRelease()
         {
             float closest = Mathf.Round(_currentRotationAmount / 90) * 90;
@@ -31,7 +44,7 @@ namespace Game.Blocks
          
             Quaternion rotation = Quaternion.Euler(new Vector3(_rotationAxis.x,_rotationAxis.y,_rotationAxis.z) * (step * 90));
             transform.DOKill();
-            transform.DORotate(rotation.eulerAngles, 1f).SetEase(Ease.OutBounce).OnComplete(() =>
+            _rotationTween = transform.DORotate(rotation.eulerAngles, 1f).SetEase(Ease.OutBounce).OnComplete(() =>
             {
                 SetStep(step);
             });
@@ -71,6 +84,16 @@ namespace Game.Blocks
             transform.rotation = Quaternion.Euler(new Vector3(_rotationAxis.x,_rotationAxis.y,_rotationAxis.z) * _currentRotationAmount);
         }
 
+        public override void PlayerIsOnMovingPart(bool playerIsOn)
+        {                
+            SetCanBeMoved(playerIsOn == false);
+        }
+
+        protected override void SetCanBeMovedInternal(bool canBeMoved)
+        {
+            SetHandle(canBeMoved);
+        }
+
         private void Rotate(Rotation rotation, float amount)
         {
             amount *= _rotationSpeedMultiplier;
@@ -89,6 +112,12 @@ namespace Game.Blocks
             {
                 _currentRotationAmount += 360;
             }
+        }
+        
+        private void SetHandle(bool active)
+        {
+            _handle.transform.DOKill();
+            _handle.transform.DOScale(active ? _baseHandleLocalScale : _baseHandleLocalScale / 2, 0.4f).SetEase(Ease.InBack);
         }
     }
 }
