@@ -44,7 +44,7 @@ namespace Game.Blocks
          
             Quaternion rotation = Quaternion.Euler(new Vector3(_rotationAxis.x,_rotationAxis.y,_rotationAxis.z) * (step * 90));
             transform.DOKill();
-            _rotationTween = transform.DORotate(rotation.eulerAngles, 1f).SetEase(Ease.OutBounce).OnComplete(() =>
+            _rotationTween = transform.DORotate(rotation.eulerAngles, 0.75f).SetEase(Ease.OutBounce).OnComplete(() =>
             {
                 SetStep(step);
             });

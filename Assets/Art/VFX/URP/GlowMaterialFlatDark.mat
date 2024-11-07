@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: GlowMaterial
+  m_Name: GlowMaterialFlatDark
   m_Shader: {fileID: -6465566751694194690, guid: da13b586742557c4d8a7296bf9eb7ef3, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
@@ -23,6 +23,10 @@ Material:
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
+    - _Albedo:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - unity_Lightmaps:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
@@ -38,10 +42,11 @@ Material:
     m_Ints: []
     m_Floats:
     - _Glowing: 0
+    - _MaxGlow: 0.4
     - _QueueControl: 0
     - _QueueOffset: 0
     m_Colors:
-    - _BaseColor: {r: 0.9433962, g: 0.56514776, b: 0.87597007, a: 1}
+    - _BaseColor: {r: 0.8679245, g: 0.4462442, b: 0.57658184, a: 1}
   m_BuildTextureStacks: []
 --- !u!114 &1590505714848526247
 MonoBehaviour:

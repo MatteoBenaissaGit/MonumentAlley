@@ -87,13 +87,17 @@ namespace Game
             indexToRemove.ForEach(index => _paths.RemoveAt(index));
         }
 
-        public void SetPathToActive(BlockController to, bool isActive)
+        public void SetPathToActive(BlockController to, bool isActive, bool callback = true)
         {
             if (_pathsToBlocks.TryGetValue(to, out BlockPath path) == false)
             {
                 return;
             }
             path.IsActive = isActive;
+            if (callback)
+            {
+                to.SetPathToActive(this, isActive, false);
+            }
         }
 
 #if UNITY_EDITOR
