@@ -29,25 +29,44 @@ namespace Game
             {
                 if (_localRelative)
                 {
-                    Vector3 up = transform.up * _walkPoint.y;
-                    Vector3 right = transform.right * _walkPoint.x;
-                    Vector3 forward = transform.forward * _walkPoint.z;
-                    return transform.position + up + right + forward;
+                    return GetWalkPointRelative(_walkPoint);
                 }
                 return transform.position + _walkPoint;
             }
         }
+        public Vector3 LadderTopWalkPoint
+        {
+            get
+            {
+                if (_localRelative)
+                {
+                    return GetWalkPointRelative(_ladderTopWalkPoint);
+                }
+                return transform.position + _ladderTopWalkPoint;
+            }
+        }
         public List<BlockPath> Paths => _paths;
         public BlockType Type => _type;
+        public bool LadderTop => _ladderTop;
         public MovingPart MovingPart { get; set; }
     
         [SerializeField] private Vector3 _walkPoint;
         [SerializeField] private bool _localRelative;
         [SerializeField] private List<BlockPath> _paths;
         [SerializeField] private BlockType _type;
+        [SerializeField] private bool _ladderTop;
+        [SerializeField] private Vector3 _ladderTopWalkPoint;
 
         private Dictionary<BlockController, BlockPath> _pathsToBlocks;
 
+        private Vector3 GetWalkPointRelative(Vector3 walkPoint)
+        {
+            Vector3 up = transform.up * walkPoint.y;
+            Vector3 right = transform.right * walkPoint.x;
+            Vector3 forward = transform.forward * walkPoint.z;
+            return transform.position + up + right + forward;
+        }
+        
         private void Awake()
         {
             _pathsToBlocks = new Dictionary<BlockController, BlockPath>();
@@ -131,9 +150,16 @@ namespace Game
 
         private void DrawWalkPoint()
         {
-            Vector3 position = WalkPoint;
             Gizmos.color = Color.gray;
+            
+            Vector3 position = WalkPoint;
             Gizmos.DrawSphere(position, 0.1f);
+
+            if (_type == BlockType.Ladder)
+            {
+                position = LadderTopWalkPoint;
+                Gizmos.DrawSphere(position, 0.1f);
+            }
         }
 
 #endif

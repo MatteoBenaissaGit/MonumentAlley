@@ -12,6 +12,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private Animator _animator;
     
     private static readonly int Walking = Animator.StringToHash("walking");
+    private static readonly int Climbing = Animator.StringToHash("climbing");
     private Sequence _moveSequence;
     
     private void Start()
@@ -21,7 +22,7 @@ public class PlayerController : MonoBehaviour
     
     public void GoToBlock(BlockController block)
     {
-        var currentBlock = GetBlockDown();
+        BlockController currentBlock = GetBlockDown();
         if (currentBlock == null) return;
 
         MovingPart movingPart = currentBlock.MovingPart;
@@ -35,19 +36,67 @@ public class PlayerController : MonoBehaviour
         for (int i = 1; i < path.Count; i++)
         {
             BlockController pathBlock = path[i];
-            
-            //move
-            _moveSequence.Append(transform.DOMove(path[i].WalkPoint, 0.35f).SetEase(Ease.Linear));
 
+            //move
+            if (pathBlock.Type == BlockType.Ladder)
+            {
+                if (i == 1 && path[i-1].LadderTop)
+                {
+                    _moveSequence.Append(transform.DOMove(path[i-1].WalkPoint, 0.35f).SetEase(Ease.Linear));
+                }
+                
+                bool previousBlockWasLadder = path[i-1].Type == BlockType.Ladder;
+                bool endLadder = i == path.Count - 1 || path[i + 1].Type != BlockType.Ladder;
+                bool endLadderOnLadderTop = (i == path.Count - 1 && pathBlock.LadderTop) || (path[i + 1].Type != BlockType.Ladder && path[i + 1].LadderTop);
+                if (endLadder)
+                {
+                    if (previousBlockWasLadder)
+                    {
+                        _moveSequence.Append(transform.DOMove(path[i].WalkPoint, 0.35f).SetEase(Ease.Linear));
+                        if (pathBlock.LadderTop)
+                        {
+                            _moveSequence.Append(transform.DOMove(path[i].LadderTopWalkPoint, 0.35f).SetEase(Ease.Linear));
+                        }
+                    }
+                    if (endLadderOnLadderTop)
+                    {
+                        _moveSequence.Append(transform.DOMove(path[i].LadderTopWalkPoint, 0.35f).SetEase(Ease.Linear));
+                    }
+                    _moveSequence.JoinCallback(() => _animator.SetBool(Climbing, false));
+                }
+                else if (previousBlockWasLadder == false || pathBlock.LadderTop)
+                {
+                    if (pathBlock.LadderTop)
+                    {
+                        _moveSequence.Append(transform.DOMove(path[i].LadderTopWalkPoint, 0.35f).SetEase(Ease.Linear));
+                        _moveSequence.Append(transform.DOMove(path[i].WalkPoint, 0.35f).SetEase(Ease.Linear));
+                    }
+                    else
+                    {
+                        _moveSequence.Append(transform.DOMove(path[i].WalkPoint, 0.35f).SetEase(Ease.Linear));
+                    }
+                    _moveSequence.JoinCallback(() => _animator.SetBool(Climbing, true));
+                }
+                else
+                {
+                    _moveSequence.Append(transform.DOMove(path[i].WalkPoint, 0.35f).SetEase(Ease.Linear));
+                    _moveSequence.JoinCallback(() => _animator.SetBool(Climbing, true));
+                }
+            }
+            else
+            {
+                _moveSequence.Append(transform.DOMove(path[i].WalkPoint, 0.35f).SetEase(Ease.Linear));
+            }
+            
             //look
-            Vector3 pointToLook = pathBlock.WalkPoint;
+            Vector3 pointToLook = pathBlock.Type == BlockType.Ladder ? pathBlock.LadderTopWalkPoint : pathBlock.WalkPoint;
             var pathToNewBlock = path[i-1].Paths.Find(x => x.Block == pathBlock);
             if (pathToNewBlock.ForceDirection)
             {
                 pointToLook = path[i].WalkPoint+ new Vector3(pathToNewBlock.Direction.x, 0, pathToNewBlock.Direction.y);
             }
             _moveSequence.Join(transform.DOLookAt(pointToLook, 0.1f, AxisConstraint.Y, Vector3.up).SetEase(Ease.Linear));
-            
+
             //moving part
             if (pathBlock.MovingPart != null && pathBlock.MovingPart != movingPart)
             {
