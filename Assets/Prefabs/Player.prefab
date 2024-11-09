@@ -46,7 +46,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _startBlock: {fileID: 0}
-  _animator: {fileID: 6483606847347379938}
+  _animator: {fileID: 8026196670654880029}
 --- !u!1001 &4079385608573310640
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -81,7 +81,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1147439658223842600, guid: d8225b0c5eb40ad4184bb9f0a42772c3, type: 3}
       propertyPath: m_LocalRotation.w
-      value: -0.00000008940697
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 1147439658223842600, guid: d8225b0c5eb40ad4184bb9f0a42772c3, type: 3}
       propertyPath: m_LocalRotation.x
@@ -89,7 +89,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1147439658223842600, guid: d8225b0c5eb40ad4184bb9f0a42772c3, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 1
+      value: 0.0000030696388
       objectReference: {fileID: 0}
     - target: {fileID: 1147439658223842600, guid: d8225b0c5eb40ad4184bb9f0a42772c3, type: 3}
       propertyPath: m_LocalRotation.z
@@ -101,7 +101,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1147439658223842600, guid: d8225b0c5eb40ad4184bb9f0a42772c3, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 180
+      value: 360
       objectReference: {fileID: 0}
     - target: {fileID: 1147439658223842600, guid: d8225b0c5eb40ad4184bb9f0a42772c3, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
@@ -125,8 +125,8 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1147439658223842600, guid: d8225b0c5eb40ad4184bb9f0a42772c3, type: 3}
   m_PrefabInstance: {fileID: 4079385608573310640}
   m_PrefabAsset: {fileID: 0}
---- !u!95 &6483606847347379938 stripped
+--- !u!95 &8026196670654880029 stripped
 Animator:
-  m_CorrespondingSourceObject: {fileID: 7018443903560063058, guid: d8225b0c5eb40ad4184bb9f0a42772c3, type: 3}
+  m_CorrespondingSourceObject: {fileID: 6340545732958015405, guid: d8225b0c5eb40ad4184bb9f0a42772c3, type: 3}
   m_PrefabInstance: {fileID: 4079385608573310640}
   m_PrefabAsset: {fileID: 0}

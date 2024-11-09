@@ -13,6 +13,7 @@ public class PlayerController : MonoBehaviour
     
     private static readonly int Walking = Animator.StringToHash("walking");
     private static readonly int Climbing = Animator.StringToHash("climbing");
+    private static readonly int ClimbValue = Animator.StringToHash("climbValue");
     private Sequence _moveSequence;
     
     private void Start()
@@ -38,6 +39,7 @@ public class PlayerController : MonoBehaviour
             BlockController pathBlock = path[i];
 
             //move
+            bool nextBlockIsLadder = i != path.Count - 1 && path[i + 1].Type == BlockType.Ladder;
             if (pathBlock.Type == BlockType.Ladder)
             {
                 if (i == 1 && path[i-1].LadderTop)
@@ -85,17 +87,32 @@ public class PlayerController : MonoBehaviour
             }
             else
             {
-                _moveSequence.Append(transform.DOMove(path[i].WalkPoint, 0.35f).SetEase(Ease.Linear));
+                Vector3 offset = Vector3.zero;
+                if (nextBlockIsLadder && path[i+1].LadderTop == false)
+                {
+                    Vector3 directionToNextBlock = (path[i+1].WalkPoint - path[i].WalkPoint);
+                    directionToNextBlock.y = 0;
+                    directionToNextBlock = directionToNextBlock.normalized;
+                    offset = directionToNextBlock * 0.25f;
+                }
+                _moveSequence.Append(transform.DOMove(path[i].WalkPoint + offset, 0.35f).SetEase(Ease.Linear));
+            }
+            if (nextBlockIsLadder && path[i+1].LadderTop == false)
+            {
+                _moveSequence.JoinCallback(() => _animator.SetBool(Climbing, true));
             }
             
             //look
-            Vector3 pointToLook = pathBlock.Type == BlockType.Ladder ? pathBlock.LadderTopWalkPoint : pathBlock.WalkPoint;
-            var pathToNewBlock = path[i-1].Paths.Find(x => x.Block == pathBlock);
-            if (pathToNewBlock.ForceDirection)
+            if (pathBlock.Type != BlockType.Ladder || pathBlock.LadderTop == false)
             {
-                pointToLook = path[i].WalkPoint+ new Vector3(pathToNewBlock.Direction.x, 0, pathToNewBlock.Direction.y);
+                Vector3 pointToLook = pathBlock.Type == BlockType.Ladder ? pathBlock.LadderTopWalkPoint : pathBlock.WalkPoint;
+                var pathToNewBlock = path[i-1].Paths.Find(x => x.Block == pathBlock);
+                if (pathToNewBlock.ForceDirection)
+                {
+                    pointToLook = path[i].WalkPoint+ new Vector3(pathToNewBlock.Direction.x, 0, pathToNewBlock.Direction.y);
+                }
+                _moveSequence.Join(transform.DOLookAt(pointToLook, 0.1f, AxisConstraint.Y, Vector3.up).SetEase(Ease.Linear));
             }
-            _moveSequence.Join(transform.DOLookAt(pointToLook, 0.1f, AxisConstraint.Y, Vector3.up).SetEase(Ease.Linear));
 
             //moving part
             if (pathBlock.MovingPart != null && pathBlock.MovingPart != movingPart)
