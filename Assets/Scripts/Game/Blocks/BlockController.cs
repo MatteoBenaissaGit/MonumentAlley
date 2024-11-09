@@ -21,6 +21,7 @@ namespace Game
         Ladder = 2
     }
 
+    [SelectionBase]
     public class BlockController : MonoBehaviour
     {
         public Vector3 WalkPoint
@@ -72,6 +73,11 @@ namespace Game
             _pathsToBlocks = new Dictionary<BlockController, BlockPath>();
             foreach (BlockPath path in _paths)
             {
+                if (path == null || path.Block == null)
+                {
+                    Debug.LogError($"no path or block in path", gameObject);
+                    continue;
+                }
                 _pathsToBlocks.Add(path.Block, path);
             }
         }

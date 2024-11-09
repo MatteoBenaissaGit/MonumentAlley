@@ -13,9 +13,7 @@ namespace Editor
         {
             GetWindow<NeighborMatcher>("Block Neighbor Matcher");
         }
-
-        private BlockController _createPathBlockLeft;
-        private BlockController _createPathBlockRight;
+        
         private bool _createPathActive = true;
 
         private void OnGUI()
@@ -24,21 +22,7 @@ namespace Editor
             {
                 DetectBlockControllers();
             }
-            
-            GUILayout.Space(15);
 
-            GUILayout.BeginVertical();
-            GUILayout.BeginHorizontal();
-            _createPathBlockLeft = EditorGUILayout.ObjectField(_createPathBlockLeft, typeof(BlockController), true) as BlockController;
-            _createPathBlockRight = EditorGUILayout.ObjectField(_createPathBlockRight, typeof(BlockController), true) as BlockController;
-            GUILayout.EndHorizontal();
-            if (GUILayout.Button("Create Path between blocks") && _createPathBlockLeft != null && _createPathBlockRight != null)
-            {
-                CreatePathBetween(_createPathBlockLeft, _createPathBlockRight);
-            }
-            _createPathActive = EditorGUILayout.Toggle("Path is active", _createPathActive);
-            GUILayout.EndVertical();
-            
             GUILayout.Space(15);
             GUILayout.BeginHorizontal();
             if (GUILayout.Button($"Clear paths from {Selection.gameObjects.Length} object"))
@@ -50,6 +34,26 @@ namespace Editor
                     EditorUtility.SetDirty(block);
                 }
             }
+            GUILayout.EndHorizontal();
+            
+            GUILayout.Space(15);
+            GUILayout.BeginHorizontal();
+            if (GUILayout.Button($"Create path between {Selection.gameObjects.Length} object"))
+            {
+                List<BlockController> blockControllers = GetBlockControllersFromSelection();
+                foreach (BlockController blockFrom in blockControllers)
+                {
+                    foreach (BlockController blockTo in blockControllers)
+                    {
+                        Undo.RecordObject(blockFrom, "AddNeighbor");
+                        if (blockFrom == blockTo) continue;
+                        blockFrom.AddNeighbors(blockTo, _createPathActive);
+                        EditorUtility.SetDirty(blockFrom);
+                        EditorUtility.SetDirty(blockTo);
+                    }
+                }
+            }
+            _createPathActive = EditorGUILayout.Toggle("Path is active", _createPathActive);
             GUILayout.EndHorizontal();
         }
 

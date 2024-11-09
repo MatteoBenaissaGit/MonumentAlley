@@ -22,11 +22,18 @@ namespace Game.Blocks
         [SerializeField] private GameObject _handle;
 
         private Vector3 _baseHandleLocalScale;
+        private Vector3 _baseLocalRotation;
         private float _currentRotationAmount;
+
+        private void Awake()
+        {
+            _baseHandleLocalScale = _handle.transform.localScale;
+            _baseLocalRotation = transform.localRotation.eulerAngles;
+        }
 
         protected override void InternalStart()
         {
-            _baseHandleLocalScale = _handle.transform.localScale;
+            
         }
 
         protected override void InternalPressed()
@@ -42,7 +49,7 @@ namespace Game.Blocks
             float closest = Mathf.Round(_currentRotationAmount / 90) * 90;
             int step = (int)closest / 90;
          
-            Quaternion rotation = Quaternion.Euler(new Vector3(_rotationAxis.x,_rotationAxis.y,_rotationAxis.z) * (step * 90));
+            Quaternion rotation = Quaternion.Euler(new Vector3(_rotationAxis.x,_rotationAxis.y,_rotationAxis.z) * (step * 90) + _baseLocalRotation);
             transform.DOKill();
             _rotationTween = transform.DORotate(rotation.eulerAngles, 0.75f).SetEase(Ease.OutBounce).OnComplete(() =>
             {
@@ -58,7 +65,7 @@ namespace Game.Blocks
 
             bool biggestMovementIsX = Mathf.Abs(direction.x) > Mathf.Abs(direction.y);
             
-            if (biggestMovementIsX)
+            if (false)//(biggestMovementIsX && Mathf.Abs(direction.y) <= 0.5f)
             {
                 if (_inverseHorizontal)
                 {
@@ -81,7 +88,7 @@ namespace Game.Blocks
             base.SetStep(step);
 
             _currentRotationAmount = step * 90;
-            transform.rotation = Quaternion.Euler(new Vector3(_rotationAxis.x,_rotationAxis.y,_rotationAxis.z) * _currentRotationAmount);
+            transform.rotation = Quaternion.Euler(new Vector3(_rotationAxis.x,_rotationAxis.y,_rotationAxis.z) * _currentRotationAmount + _baseLocalRotation);
         }
 
         public override void PlayerIsOnMovingPart(bool playerIsOn)
@@ -117,7 +124,7 @@ namespace Game.Blocks
         private void SetHandle(bool active)
         {
             _handle.transform.DOKill();
-            _handle.transform.DOScale(active ? _baseHandleLocalScale : _baseHandleLocalScale / 2, 0.4f).SetEase(Ease.InBack);
+            _handle.transform.DOScale(active ? _baseHandleLocalScale : Vector3.zero, 0.4f).SetEase(Ease.InBack);
         }
     }
 }

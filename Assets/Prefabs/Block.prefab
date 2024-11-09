@@ -47,7 +47,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _walkPoint: {x: 0, y: 0.5, z: 0}
+  _localRelative: 0
   _paths: []
+  _type: 0
+  _ladderTop: 0
+  _ladderTopWalkPoint: {x: 0, y: 0, z: 0}
 --- !u!65 &6207206337222765058
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -130,7 +134,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 5adf9c6ca003de843afda918c12fa196, type: 2}
+  - {fileID: 2100000, guid: b18548dd95545704eaf869f611fff3b0, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

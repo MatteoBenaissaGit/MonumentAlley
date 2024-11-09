@@ -106,10 +106,12 @@ public class PlayerController : MonoBehaviour
             if (pathBlock.Type != BlockType.Ladder || pathBlock.LadderTop == false)
             {
                 Vector3 pointToLook = pathBlock.Type == BlockType.Ladder ? pathBlock.LadderTopWalkPoint : pathBlock.WalkPoint;
-                var pathToNewBlock = path[i-1].Paths.Find(x => x.Block == pathBlock);
+                BlockPath pathToNewBlock = path[i-1].Paths.Find(x => x.Block == pathBlock);
                 if (pathToNewBlock.ForceDirection)
                 {
-                    pointToLook = path[i].WalkPoint+ new Vector3(pathToNewBlock.Direction.x, 0, pathToNewBlock.Direction.y);
+                    Vector3 direction = new Vector3(pathToNewBlock.Direction.x, 0, pathToNewBlock.Direction.y);
+                    Debug.DrawLine(path[i-1].WalkPoint, path[i-1].WalkPoint + direction, Color.cyan, 5f);
+                    pointToLook = path[i-1].WalkPoint + direction;
                 }
                 _moveSequence.Join(transform.DOLookAt(pointToLook, 0.1f, AxisConstraint.Y, Vector3.up).SetEase(Ease.Linear));
             }
@@ -174,7 +176,7 @@ public class PlayerController : MonoBehaviour
     
     private BlockController GetBlockDown()
     {
-        Vector3 origin = transform.position + Vector3.up * 0.1f;
+        Vector3 origin = transform.position + Vector3.up;
         Vector3 direction = Vector3.down;
         if (Physics.Raycast(origin,direction, out RaycastHit hit, 1))
         {

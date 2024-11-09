@@ -64,7 +64,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4740560523340239441}
   - component: {fileID: 7902506591330417763}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: TouchCircleSprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}

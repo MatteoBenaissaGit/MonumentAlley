@@ -40,7 +40,6 @@ namespace Game
                 else if (hitGameObject.TryGetComponent(out BlockController block))
                 {
                     Vector3 walkPoint = block.WalkPoint;
-                    
                     if (block.Type == BlockType.Ladder)
                     {
                         if (block.LadderTop == false)
@@ -50,8 +49,7 @@ namespace Game
                         walkPoint = block.LadderTopWalkPoint;
                     }
                     
-                    Vector3 up = (walkPoint - block.transform.position).normalized;
-                    _ui.TouchEffectAt(walkPoint, up);
+                    _ui.TouchEffectAt(walkPoint, block.Type == BlockType.Stair ? (walkPoint - block.transform.position).normalized : block.transform.up);
                     _player.GoToBlock(block);
                 }
             }
