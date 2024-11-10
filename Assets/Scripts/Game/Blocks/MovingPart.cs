@@ -88,6 +88,8 @@ namespace Game.Blocks
 
         private void HandleMovement()
         {
+            if (GameManager.Instance.Inputs == null) return;
+            
             if (IsPressed == false | GameManager.Instance.Inputs.IsPressingPosition(out Vector2 position) == false)
             {
                 return;

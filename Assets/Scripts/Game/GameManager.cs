@@ -1,5 +1,7 @@
+using System;
 using Game.Blocks;
 using MatteoBenaissaLibrary.SingletonClassBase;
+using UI;
 using UnityEngine;
 
 namespace Game
@@ -7,18 +9,34 @@ namespace Game
     public class GameManager : Singleton<GameManager>
     {
         public InputsManager Inputs => _inputs;
-        
+        public PlayerController Player => _player;
+        public UIManager UI => _ui;
+
+        [Header("Game")]
         [SerializeField] private PlayerController _player;
         [SerializeField] private Camera _camera;
         [SerializeField] private UIManager _ui;
 
+        [Header("Events")]
+        [SerializeField] private EventSystem.Event _startEvent;
+        [SerializeField] private EventSystem.Event _endEvent;
+
         private InputsManager _inputs;
         private MovingPart _currentMovingPartPressed;
 
-        protected override void Awake()
+        private void Start()
         {
-            base.Awake();
+            if (_startEvent != null)
+            {
+                _startEvent.OnEnd += SetInputs;
+                _startEvent.Launch();
+                return;
+            }
+            SetInputs();
+        }
 
+        private void SetInputs()
+        {
             _inputs = new InputsManager();
             _inputs.Initialize();
 

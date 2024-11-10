@@ -122,6 +122,7 @@ public class PlayerController : MonoBehaviour
                 int step = pathBlock.MovingPart.CurrentStep;
                 _moveSequence.JoinCallback(() => CheckMovingPartAtPlayerPath(pathBlock.MovingPart, _moveSequence, step));
                 _moveSequence.JoinCallback(() => pathBlock.MovingPart.PlayerIsOnMovingPart(true));
+                movingPart = pathBlock.MovingPart;
             }
             if (pathBlock.MovingPart != movingPart && movingPart != null)
             {
