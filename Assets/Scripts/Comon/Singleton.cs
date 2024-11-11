@@ -14,7 +14,7 @@ namespace MatteoBenaissaLibrary.SingletonClassBase
         {
             if (Instance != null)
             {
-                Debug.LogError($"More than one <b>\"{typeof(TClass).Name}\"</b> singleton in scene.", gameObject);
+                Debug.LogWarning($"More than one <b>\"{typeof(TClass).Name}\"</b> singleton in scene.", gameObject);
                 Destroy(this);
                 return;
             }

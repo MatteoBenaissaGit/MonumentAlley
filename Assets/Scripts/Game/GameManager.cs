@@ -11,11 +11,15 @@ namespace Game
         public InputsManager Inputs => _inputs;
         public PlayerController Player => _player;
         public UIManager UI => _ui;
+        public BlockController EndBlock => _endBlock;
+
+        public bool InputsActive { get; set; } = true;
 
         [Header("Game")]
         [SerializeField] private PlayerController _player;
         [SerializeField] private Camera _camera;
         [SerializeField] private UIManager _ui;
+        [SerializeField] private BlockController _endBlock;
 
         [Header("Events")]
         [SerializeField] private EventSystem.Event _startEvent;
@@ -46,6 +50,11 @@ namespace Game
 
         private void OnTouch(Vector2 position)
         {
+            if (InputsActive == false)
+            {
+                return;
+            }
+            
             Ray ray = _camera.ScreenPointToRay(position);
             if (Physics.Raycast(ray, out RaycastHit hit, 100))
             {
@@ -75,8 +84,25 @@ namespace Game
         
         private void OnRelease(Vector2 position)
         {
+            if (InputsActive == false)
+            {
+                return;
+            }
+            
             _currentMovingPartPressed?.GetReleased();
             _currentMovingPartPressed = null;
+        }
+
+        public void EndLevel()
+        {
+            InputsActive = false;
+            _endEvent.Launch();
+            _endEvent.OnEnd += NextLevel;
+        }
+
+        private void NextLevel()
+        {
+            Debug.Log("NEXT LEVEL");
         }
     }
 }

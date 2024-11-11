@@ -32,6 +32,7 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 1175860653015955624}
   - {fileID: 4761251454947717331}
   - {fileID: 9019062006963289031}
   m_Father: {fileID: 6737816062855270795}
@@ -119,6 +120,54 @@ MonoBehaviour:
   <Dialog>k__BackingField: {fileID: 3888981446783265640}
   <BlackScreen>k__BackingField: {fileID: 6134092485151538880}
   _touchEffectPrefab: {fileID: 3877938055006424807, guid: 086b666e53e9fa14e994596458ed6b4e, type: 3}
+--- !u!1 &765229415343818506
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1614755407578345169}
+  - component: {fileID: 4038054482161023517}
+  m_Layer: 0
+  m_Name: EndEvent
+  m_TagString: Untagged
+  m_Icon: {fileID: 4162164826716764455, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1614755407578345169
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 765229415343818506}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -3.9413846, y: 2.7507894, z: -3.8834264}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6737816062855270795}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4038054482161023517
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 765229415343818506}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d99c3e4fb26da44db626e06f9c3a94c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Effects: []
+  references:
+    version: 2
+    RefIds: []
 --- !u!1 &866045018449287927
 GameObject:
   m_ObjectHideFlags: 0
@@ -149,6 +198,8 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 545253395335695586}
+  - {fileID: 41956496320890888}
+  - {fileID: 1614755407578345169}
   - {fileID: 232071144565328711}
   - {fileID: 6580357973148113925}
   m_Father: {fileID: 0}
@@ -201,8 +252,9 @@ MonoBehaviour:
   _player: {fileID: 0}
   _camera: {fileID: 0}
   _ui: {fileID: 158200603280553774}
-  _startEvent: {fileID: 0}
-  _endEvent: {fileID: 0}
+  _endBlock: {fileID: 0}
+  _startEvent: {fileID: 5053080628360836043}
+  _endEvent: {fileID: 4038054482161023517}
 --- !u!1 &3358240267229366400
 GameObject:
   m_ObjectHideFlags: 0
@@ -653,6 +705,140 @@ MonoBehaviour:
   m_InputActionsPerSecond: 10
   m_RepeatDelay: 0.5
   m_ForceModuleActive: 0
+--- !u!1 &7030530133854548141
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1175860653015955624}
+  - component: {fileID: 6524560817507166106}
+  - component: {fileID: 3008659583659262171}
+  m_Layer: 5
+  m_Name: Print
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!224 &1175860653015955624
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7030530133854548141}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6580357973148113925}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 677, y: 370}
+  m_SizeDelta: {x: 486.1298, y: 226.8218}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!222 &6524560817507166106
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7030530133854548141}
+  m_CullTransparentMesh: 1
+--- !u!114 &3008659583659262171
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7030530133854548141}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_text: PRINT.
+  m_isRightToLeft: 0
+  m_fontAsset: {fileID: 11400000, guid: 59f3a09c11e6fc34dbe0201ee235a61a, type: 2}
+  m_sharedMaterial: {fileID: 2964393355288477431, guid: 59f3a09c11e6fc34dbe0201ee235a61a, type: 2}
+  m_fontSharedMaterials: []
+  m_fontMaterial: {fileID: 0}
+  m_fontMaterials: []
+  m_fontColor32:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+  m_enableVertexGradient: 0
+  m_colorMode: 3
+  m_fontColorGradient:
+    topLeft: {r: 1, g: 1, b: 1, a: 1}
+    topRight: {r: 1, g: 1, b: 1, a: 1}
+    bottomLeft: {r: 1, g: 1, b: 1, a: 1}
+    bottomRight: {r: 1, g: 1, b: 1, a: 1}
+  m_fontColorGradientPreset: {fileID: 0}
+  m_spriteAsset: {fileID: 0}
+  m_tintAllSprites: 0
+  m_StyleSheet: {fileID: 0}
+  m_TextStyleHashCode: -1183493901
+  m_overrideHtmlColors: 0
+  m_faceColor:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontSize: 189
+  m_fontSizeBase: 54.25
+  m_fontWeight: 400
+  m_enableAutoSizing: 1
+  m_fontSizeMin: 18
+  m_fontSizeMax: 300
+  m_fontStyle: 0
+  m_HorizontalAlignment: 1
+  m_VerticalAlignment: 256
+  m_textAlignment: 65535
+  m_characterSpacing: 0
+  m_wordSpacing: 0
+  m_lineSpacing: 0
+  m_lineSpacingMax: 0
+  m_paragraphSpacing: 0
+  m_charWidthMaxAdj: 0
+  m_enableWordWrapping: 1
+  m_wordWrappingRatios: 0.4
+  m_overflowMode: 0
+  m_linkedTextComponent: {fileID: 0}
+  parentLinkedComponent: {fileID: 0}
+  m_enableKerning: 1
+  m_enableExtraPadding: 0
+  checkPaddingRequired: 0
+  m_isRichText: 1
+  m_parseCtrlCharacters: 1
+  m_isOrthographic: 1
+  m_isCullingEnabled: 0
+  m_horizontalMapping: 0
+  m_verticalMapping: 0
+  m_uvLineOffset: 0
+  m_geometrySortingOrder: 0
+  m_IsTextObjectScaleStatic: 0
+  m_VertexBufferAutoSizeReduction: 0
+  m_useMaxVisibleDescender: 1
+  m_pageToDisplay: 1
+  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_isUsingLegacyAnimationComponent: 0
+  m_isVolumetricText: 0
+  m_hasFontAssetChanged: 0
+  m_baseMaterial: {fileID: 0}
+  m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!1 &7979500251868180594
 GameObject:
   m_ObjectHideFlags: 0
@@ -705,6 +891,223 @@ MonoBehaviour:
   _textAnimator: {fileID: 8174667349102621617}
   _textAnimatorPlayer: {fileID: 3692972063774569419}
   _dialogPanel: {fileID: 5023520753131466864}
+--- !u!1 &8113155668128848707
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 41956496320890888}
+  - component: {fileID: 5053080628360836043}
+  m_Layer: 0
+  m_Name: StartEvent
+  m_TagString: Untagged
+  m_Icon: {fileID: 4162164826716764455, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &41956496320890888
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8113155668128848707}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -3.9413846, y: 2.7507894, z: -3.8834264}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6737816062855270795}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5053080628360836043
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8113155668128848707}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d99c3e4fb26da44db626e06f9c3a94c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Effects:
+  - rid: 2289623255267147793
+  - rid: 2289623255267147784
+  - rid: 2289623255267147785
+  - rid: 2289623255267147777
+  - rid: 2289623255267147781
+  - rid: 2289623255267147795
+  - rid: 2289623255267147794
+  - rid: 2289623255267147778
+  - rid: 2289623255267147782
+  - rid: 2289623255267147792
+  - rid: 2289623255267147796
+  - rid: 2289623255267147797
+  - rid: 2289623255267147800
+  - rid: 2289623255267147801
+  - rid: 2289623255267147786
+  - rid: 2289623255267147787
+  - rid: 2289623255267147779
+  - rid: 2289623255267147780
+  - rid: 2289623255267147798
+  - rid: 2289623255267147799
+  - rid: 2289623255267147804
+  - rid: 2289623255267147803
+  - rid: 2289623255267147805
+  - rid: 2289623255267147802
+  references:
+    version: 2
+    RefIds:
+    - rid: 2289623255267147777
+      type: {class: EffectSetObjectActive, ns: Art.VFX.Scripts.Effects, asm: Assembly-CSharp}
+      data:
+        Enabled: 1
+        ObjectToSet: {fileID: 0}
+        SetActive: 0
+    - rid: 2289623255267147778
+      type: {class: EffectWait, ns: Art.VFX.Scripts.Effects, asm: Assembly-CSharp}
+      data:
+        Enabled: 1
+        Duration: 3
+    - rid: 2289623255267147779
+      type: {class: EffectSetObjectActive, ns: Art.VFX.Scripts.Effects, asm: Assembly-CSharp}
+      data:
+        Enabled: 1
+        ObjectToSet: {fileID: 0}
+        SetActive: 1
+    - rid: 2289623255267147780
+      type: {class: EffectSetObjectActive, ns: Art.VFX.Scripts.Effects, asm: Assembly-CSharp}
+      data:
+        Enabled: 1
+        ObjectToSet: {fileID: 0}
+        SetActive: 0
+    - rid: 2289623255267147781
+      type: {class: EffectSetAnimation, ns: EventSystem.Effects, asm: Assembly-CSharp}
+      data:
+        Enabled: 1
+        Name: sadIdle
+        Animator: {fileID: 0}
+        Type: 0
+        SetActive: 1
+    - rid: 2289623255267147782
+      type: {class: EffectSetAnimation, ns: EventSystem.Effects, asm: Assembly-CSharp}
+      data:
+        Enabled: 1
+        Name: shakeHead
+        Animator: {fileID: 0}
+        Type: 1
+        SetActive: 1
+    - rid: 2289623255267147784
+      type: {class: EffectSetObjectActive, ns: Art.VFX.Scripts.Effects, asm: Assembly-CSharp}
+      data:
+        Enabled: 1
+        ObjectToSet: {fileID: 0}
+        SetActive: 0
+    - rid: 2289623255267147785
+      type: {class: EffectSetObjectActive, ns: Art.VFX.Scripts.Effects, asm: Assembly-CSharp}
+      data:
+        Enabled: 1
+        ObjectToSet: {fileID: 0}
+        SetActive: 0
+    - rid: 2289623255267147786
+      type: {class: EffectSetObjectActive, ns: Art.VFX.Scripts.Effects, asm: Assembly-CSharp}
+      data:
+        Enabled: 1
+        ObjectToSet: {fileID: 0}
+        SetActive: 1
+    - rid: 2289623255267147787
+      type: {class: EffectSetObjectActive, ns: Art.VFX.Scripts.Effects, asm: Assembly-CSharp}
+      data:
+        Enabled: 1
+        ObjectToSet: {fileID: 0}
+        SetActive: 1
+    - rid: 2289623255267147792
+      type: {class: EffectDisplayDialog, ns: EventSystem.Effects, asm: Assembly-CSharp}
+      data:
+        Enabled: 1
+        Dialog: Why is my boss always making me print copies...
+        Time: 4
+    - rid: 2289623255267147793
+      type: {class: EffectBlackScreen, ns: EventSystem.Effects, asm: Assembly-CSharp}
+      data:
+        Enabled: 1
+        Active: 1
+        Time: 0
+    - rid: 2289623255267147794
+      type: {class: EffectBlackScreen, ns: EventSystem.Effects, asm: Assembly-CSharp}
+      data:
+        Enabled: 1
+        Active: 0
+        Time: 2
+    - rid: 2289623255267147795
+      type: {class: EffectWait, ns: Art.VFX.Scripts.Effects, asm: Assembly-CSharp}
+      data:
+        Enabled: 1
+        Duration: 1
+    - rid: 2289623255267147796
+      type: {class: EffectDisplayDialog, ns: EventSystem.Effects, asm: Assembly-CSharp}
+      data:
+        Enabled: 1
+        Dialog: I'm tired.
+        Time: 3
+    - rid: 2289623255267147797
+      type: {class: EffectWait, ns: Art.VFX.Scripts.Effects, asm: Assembly-CSharp}
+      data:
+        Enabled: 1
+        Duration: 1
+    - rid: 2289623255267147798
+      type: {class: EffectSetObjectActive, ns: Art.VFX.Scripts.Effects, asm: Assembly-CSharp}
+      data:
+        Enabled: 1
+        ObjectToSet: {fileID: 0}
+        SetActive: 0
+    - rid: 2289623255267147799
+      type: {class: EffectSetObjectActive, ns: Art.VFX.Scripts.Effects, asm: Assembly-CSharp}
+      data:
+        Enabled: 1
+        ObjectToSet: {fileID: 0}
+        SetActive: 0
+    - rid: 2289623255267147800
+      type: {class: EffectBlackScreen, ns: EventSystem.Effects, asm: Assembly-CSharp}
+      data:
+        Enabled: 1
+        Active: 1
+        Time: 2
+    - rid: 2289623255267147801
+      type: {class: EffectWait, ns: Art.VFX.Scripts.Effects, asm: Assembly-CSharp}
+      data:
+        Enabled: 1
+        Duration: 2
+    - rid: 2289623255267147802
+      type: {class: EffectBlackScreen, ns: EventSystem.Effects, asm: Assembly-CSharp}
+      data:
+        Enabled: 1
+        Active: 0
+        Time: 1
+    - rid: 2289623255267147803
+      type: {class: EffectSetAnimation, ns: EventSystem.Effects, asm: Assembly-CSharp}
+      data:
+        Enabled: 1
+        Name: sadIdle
+        Animator: {fileID: 0}
+        Type: 0
+        SetActive: 0
+    - rid: 2289623255267147804
+      type: {class: EffectSetObjectActive, ns: Art.VFX.Scripts.Effects, asm: Assembly-CSharp}
+      data:
+        Enabled: 1
+        ObjectToSet: {fileID: 7030530133854548141}
+        SetActive: 1
+    - rid: 2289623255267147805
+      type: {class: EffectWait, ns: Art.VFX.Scripts.Effects, asm: Assembly-CSharp}
+      data:
+        Enabled: 1
+        Duration: 0.5
 --- !u!1 &8113775787445056964
 GameObject:
   m_ObjectHideFlags: 0

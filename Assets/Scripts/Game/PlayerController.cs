@@ -134,6 +134,13 @@ public class PlayerController : MonoBehaviour
             //parent
             Transform currentBlockTransform = path[i].transform;
             _moveSequence.JoinCallback(() => transform.parent = currentBlockTransform);
+            
+            //end level
+            if (pathBlock == GameManager.Instance.EndBlock)
+            {
+                _moveSequence.JoinCallback(() => GameManager.Instance.EndLevel());
+            }
+            
         }
         _moveSequence.AppendCallback(() => _animator.SetBool(Walking, false));
         
