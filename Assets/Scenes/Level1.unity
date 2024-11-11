@@ -7038,11 +7038,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4038054482161023517, guid: 17558833296098b4eb1d4b26da160318, type: 3}
       propertyPath: Effects.Array.data[4]
-      value: 2289623277186580481
+      value: 2289623262343200775
       objectReference: {fileID: 0}
     - target: {fileID: 4038054482161023517, guid: 17558833296098b4eb1d4b26da160318, type: 3}
       propertyPath: Effects.Array.data[5]
-      value: 2289623262343200775
+      value: 2289623277186580481
       objectReference: {fileID: 0}
     - target: {fileID: 4038054482161023517, guid: 17558833296098b4eb1d4b26da160318, type: 3}
       propertyPath: Effects.Array.data[6]
@@ -7207,6 +7207,10 @@ PrefabInstance:
     - target: {fileID: 4038054482161023517, guid: 17558833296098b4eb1d4b26da160318, type: 3}
       propertyPath: managedReferences[2289623262343200769].Type
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4038054482161023517, guid: 17558833296098b4eb1d4b26da160318, type: 3}
+      propertyPath: managedReferences[2289623262343200770].Ease
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4038054482161023517, guid: 17558833296098b4eb1d4b26da160318, type: 3}
       propertyPath: managedReferences[2289623262343200770].Time

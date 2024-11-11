@@ -3768,7 +3768,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9019524045391315360, guid: ad7efa76966b2834285968972f70aac4, type: 3}
       propertyPath: Effects.Array.size
-      value: 14
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 9019524045391315360, guid: ad7efa76966b2834285968972f70aac4, type: 3}
       propertyPath: Effects.Array.data[0]
@@ -3796,19 +3796,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9019524045391315360, guid: ad7efa76966b2834285968972f70aac4, type: 3}
       propertyPath: Effects.Array.data[6]
-      value: 2289623277186580498
+      value: 2289623277186580515
       objectReference: {fileID: 0}
     - target: {fileID: 9019524045391315360, guid: ad7efa76966b2834285968972f70aac4, type: 3}
       propertyPath: Effects.Array.data[7]
-      value: 2289623277186580505
+      value: 2289623277186580498
       objectReference: {fileID: 0}
     - target: {fileID: 9019524045391315360, guid: ad7efa76966b2834285968972f70aac4, type: 3}
       propertyPath: Effects.Array.data[8]
-      value: 2289623277186580506
+      value: 2289623277186580505
       objectReference: {fileID: 0}
     - target: {fileID: 9019524045391315360, guid: ad7efa76966b2834285968972f70aac4, type: 3}
       propertyPath: Effects.Array.data[9]
-      value: 2289623277186580509
+      value: 2289623277186580506
       objectReference: {fileID: 0}
     - target: {fileID: 9019524045391315360, guid: ad7efa76966b2834285968972f70aac4, type: 3}
       propertyPath: managedReferences[-2]
@@ -3816,18 +3816,22 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9019524045391315360, guid: ad7efa76966b2834285968972f70aac4, type: 3}
       propertyPath: Effects.Array.data[10]
-      value: 2289623277186580507
+      value: 2289623277186580509
       objectReference: {fileID: 0}
     - target: {fileID: 9019524045391315360, guid: ad7efa76966b2834285968972f70aac4, type: 3}
       propertyPath: Effects.Array.data[11]
-      value: 2289623277186580510
+      value: 2289623277186580507
       objectReference: {fileID: 0}
     - target: {fileID: 9019524045391315360, guid: ad7efa76966b2834285968972f70aac4, type: 3}
       propertyPath: Effects.Array.data[12]
-      value: 2289623277186580511
+      value: 2289623277186580510
       objectReference: {fileID: 0}
     - target: {fileID: 9019524045391315360, guid: ad7efa76966b2834285968972f70aac4, type: 3}
       propertyPath: Effects.Array.data[13]
+      value: 2289623277186580511
+      objectReference: {fileID: 0}
+    - target: {fileID: 9019524045391315360, guid: ad7efa76966b2834285968972f70aac4, type: 3}
+      propertyPath: Effects.Array.data[14]
       value: 2289623277186580512
       objectReference: {fileID: 0}
     - target: {fileID: 9019524045391315360, guid: ad7efa76966b2834285968972f70aac4, type: 3}
@@ -3911,6 +3915,10 @@ PrefabInstance:
       value: Assembly-CSharp EventSystem.Effects.EffectMoveObject
       objectReference: {fileID: 0}
     - target: {fileID: 9019524045391315360, guid: ad7efa76966b2834285968972f70aac4, type: 3}
+      propertyPath: managedReferences[2289623277186580515]
+      value: Assembly-CSharp EventSystem.Effects.EffectPlaySound
+      objectReference: {fileID: 0}
+    - target: {fileID: 9019524045391315360, guid: ad7efa76966b2834285968972f70aac4, type: 3}
       propertyPath: managedReferences[2289623277186580488].Ease
       value: 18
       objectReference: {fileID: 0}
@@ -3987,6 +3995,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1140996159}
     - target: {fileID: 9019524045391315360, guid: ad7efa76966b2834285968972f70aac4, type: 3}
+      propertyPath: managedReferences[2289623277186580515].Sound
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 9019524045391315360, guid: ad7efa76966b2834285968972f70aac4, type: 3}
       propertyPath: managedReferences[2289623277186580486].Enable
       value: 1
       objectReference: {fileID: 0}
@@ -4001,6 +4013,10 @@ PrefabInstance:
     - target: {fileID: 9019524045391315360, guid: ad7efa76966b2834285968972f70aac4, type: 3}
       propertyPath: managedReferences[2289623277186580512].Enable
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9019524045391315360, guid: ad7efa76966b2834285968972f70aac4, type: 3}
+      propertyPath: managedReferences[2289623277186580515].Volume
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 9019524045391315360, guid: ad7efa76966b2834285968972f70aac4, type: 3}
       propertyPath: managedReferences[2289623277186580486].Enabled
@@ -4096,6 +4112,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9019524045391315360, guid: ad7efa76966b2834285968972f70aac4, type: 3}
       propertyPath: managedReferences[2289623277186580514].Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9019524045391315360, guid: ad7efa76966b2834285968972f70aac4, type: 3}
+      propertyPath: managedReferences[2289623277186580515].Enabled
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9019524045391315360, guid: ad7efa76966b2834285968972f70aac4, type: 3}
@@ -5769,6 +5789,10 @@ PrefabInstance:
     - target: {fileID: 9019524045391315360, guid: ad7efa76966b2834285968972f70aac4, type: 3}
       propertyPath: managedReferences[2289623277186580495].Enabled
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9019524045391315360, guid: ad7efa76966b2834285968972f70aac4, type: 3}
+      propertyPath: managedReferences[2289623277186580485].Duration
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 9019524045391315360, guid: ad7efa76966b2834285968972f70aac4, type: 3}
       propertyPath: managedReferences[2289623277186580488].Offset.x
