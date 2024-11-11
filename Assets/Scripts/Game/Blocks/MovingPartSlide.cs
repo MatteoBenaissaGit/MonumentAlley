@@ -100,6 +100,11 @@ namespace Game.Blocks
         {
         }
 
+        public override void SetStepWithEase(int step, float time)
+        {
+            SetStep(step);
+        }
+
         private void Slide(Vector3 axis, float amount)
         {
             amount *= _movementMultiplier;

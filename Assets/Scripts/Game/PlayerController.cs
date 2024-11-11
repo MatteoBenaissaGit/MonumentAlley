@@ -176,10 +176,23 @@ public class PlayerController : MonoBehaviour
     private BlockController[] GetNeighbours(BlockController currentBlock)
     {
         List<BlockController> neighbors = new List<BlockController>();
-        
+
+        List<BlockController> blockedBlocks = new();
+        foreach (BlockToBlock blockToBlock in GameManager.Instance.BlockedPath)
+        {
+            if (blockToBlock.StartBlock == currentBlock)
+            {
+                blockedBlocks.Add(blockToBlock.EndBlock);
+            }
+            else if (blockToBlock.EndBlock == currentBlock)
+            {
+                blockedBlocks.Add(blockToBlock.StartBlock);
+            }
+        }
+
         foreach (BlockPath path in currentBlock.Paths)
         {
-            if (path.IsActive == false || path.Block.Enabled == false) continue;
+            if (path.IsActive == false || path.Block.Enabled == false || blockedBlocks.Contains(path.Block)) continue;
             neighbors.Add(path.Block);
         }
         

@@ -137,5 +137,6 @@ namespace Game.Blocks
         }
 
         protected abstract void SetCanBeMovedInternal(bool canBeMoved);
+        public abstract void SetStepWithEase(int step, float time);
     }
 }

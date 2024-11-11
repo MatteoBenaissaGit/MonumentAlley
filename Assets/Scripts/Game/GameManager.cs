@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using Game.Blocks;
 using MatteoBenaissaLibrary.SingletonClassBase;
 using UI;
@@ -12,8 +13,8 @@ namespace Game
         public PlayerController Player => _player;
         public UIManager UI => _ui;
         public BlockController EndBlock => _endBlock;
-
         public bool InputsActive { get; set; } = true;
+        public List<BlockToBlock> BlockedPath { get; private set; } = new List<BlockToBlock>();
 
         [Header("Game")]
         [SerializeField] private PlayerController _player;
@@ -104,5 +105,18 @@ namespace Game
         {
             LevelManager.Instance.NextLevel();
         }
+    }
+
+    [Serializable]
+    public class BlockToBlock
+    {
+        public BlockToBlock(BlockController startBlock, BlockController endBlock)
+        {
+            StartBlock = startBlock;
+            EndBlock = endBlock;
+        }
+
+        [field:SerializeField] public BlockController StartBlock { get; private set; }
+        [field:SerializeField] public BlockController EndBlock { get; private set; }
     }
 }

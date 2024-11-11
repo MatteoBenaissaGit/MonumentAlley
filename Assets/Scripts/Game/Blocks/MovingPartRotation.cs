@@ -124,6 +124,18 @@ namespace Game.Blocks
             SetHandle(canBeMoved);
         }
 
+        public override void SetStepWithEase(int step, float time)
+        {
+            Quaternion rotation = Quaternion.Euler(new Vector3(_rotationAxis.x,_rotationAxis.y,_rotationAxis.z) * (step * 90) + _baseLocalRotation);
+            transform.DOKill();
+            _rotationTween = transform.DORotate(rotation.eulerAngles, time).SetEase(Ease.OutBounce).OnComplete(() =>
+            {
+                SetStep(step);
+            });
+            
+            SoundManager.Instance?.PlaySound(SoundEnum.unlock, 0.025f);
+        }
+
         private void Rotate(Rotation rotation, float amount)
         {
             amount *= _rotationSpeedMultiplier;
