@@ -12,6 +12,7 @@ namespace UI
         [SerializeField] private Button _playButton;
         [SerializeField] private Button _quitButton;
         [SerializeField] private Image _blackScreen;
+        [SerializeField] private Transform _paperFeedback;
 
         private void Start()
         {
@@ -23,6 +24,8 @@ namespace UI
 
         private void StartLevel()
         {
+            _paperFeedback.DOMove(_paperFeedback.position + _paperFeedback.forward * 3, 1f);
+            
             _quitButton.GetComponent<MenuButton>().SetIsClicked();
             _blackScreen.DOFade(1, 1f).OnComplete(_levelManager.NextLevel);
         }
