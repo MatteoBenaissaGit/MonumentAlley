@@ -23,6 +23,7 @@ namespace UI
 
         private void StartLevel()
         {
+            _quitButton.GetComponent<MenuButton>().SetIsClicked();
             _blackScreen.DOFade(1, 1f).OnComplete(_levelManager.NextLevel);
         }
     }

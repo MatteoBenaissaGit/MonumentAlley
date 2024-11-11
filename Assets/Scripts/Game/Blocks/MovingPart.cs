@@ -31,8 +31,9 @@ namespace Game.Blocks
         protected float CurrentMovementStep { get; set; }
         protected bool CanBeMoved { get; set; } = true;
         protected Vector2 LastPressedPosition { get; set; }
+        public List<Renderer> GlowingParts => _glowingParts;
 
-        private static readonly int Glowing = Shader.PropertyToID("_Glowing");
+        protected static readonly int Glowing = Shader.PropertyToID("_Glowing");
 
         private void Start()
         {
@@ -51,8 +52,11 @@ namespace Game.Blocks
         protected void Update()
         {
             HandleMovement();
+            InternalUpdate();
         }
 
+        protected virtual void InternalUpdate(){}
+        
         public void GetPressed(Vector2 position)
         {
             if (IsPressed || CanBeMoved == false) return;

@@ -1,5 +1,6 @@
 ﻿using System;
 using DG.Tweening;
+using MatteoBenaissaLibrary.AudioManager;
 using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -11,6 +12,8 @@ namespace UI
     {
         [SerializeField] private TMP_Text _text;
         [SerializeField] private Button _button;
+        [SerializeField] private SoundEnum _hoverSound;
+        [SerializeField] private SoundEnum _clickSound;
 
         private bool _isClicked;
 
@@ -24,6 +27,7 @@ namespace UI
             _isClicked = true;
             transform.DOComplete();
             transform.DOMoveX(transform.position.x + 50, 1f);
+            SoundManager.Instance.PlaySound(_clickSound);
         }
 
         public void OnPointerEnter(PointerEventData eventData)
@@ -32,6 +36,7 @@ namespace UI
             
             _text.DOKill();
             _text.DOFade(1f, 0.3f);
+            SoundManager.Instance.PlaySound(_hoverSound);
         }
 
         public void OnPointerExit(PointerEventData eventData)
@@ -41,5 +46,7 @@ namespace UI
             _text.DOKill();
             _text.DOFade(0.2f, 0.3f);
         }
+
+        public void SetIsClicked() => _isClicked = true;
     }
 }

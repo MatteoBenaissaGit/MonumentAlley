@@ -6613,6 +6613,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8656781972328663089, guid: 8ae745331a741a442942e1cdce61719b, type: 3}
+      propertyPath: _makeGlowAtStart
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8656781972328663089, guid: 8ae745331a741a442942e1cdce61719b, type: 3}
       propertyPath: _inverseHorizontal
       value: 0
       objectReference: {fileID: 0}
@@ -6818,7 +6822,7 @@ PrefabInstance:
       objectReference: {fileID: 812308476}
     - target: {fileID: 4038054482161023517, guid: 17558833296098b4eb1d4b26da160318, type: 3}
       propertyPath: Effects.Array.size
-      value: 19
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 4038054482161023517, guid: 17558833296098b4eb1d4b26da160318, type: 3}
       propertyPath: Effects.Array.data[0]
@@ -6838,62 +6842,66 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4038054482161023517, guid: 17558833296098b4eb1d4b26da160318, type: 3}
       propertyPath: Effects.Array.data[4]
-      value: 2289623262343200775
+      value: 2289623277186580481
       objectReference: {fileID: 0}
     - target: {fileID: 4038054482161023517, guid: 17558833296098b4eb1d4b26da160318, type: 3}
       propertyPath: Effects.Array.data[5]
-      value: 2289623262343200776
+      value: 2289623262343200775
       objectReference: {fileID: 0}
     - target: {fileID: 4038054482161023517, guid: 17558833296098b4eb1d4b26da160318, type: 3}
       propertyPath: Effects.Array.data[6]
-      value: 2289623262343200778
+      value: 2289623262343200776
       objectReference: {fileID: 0}
     - target: {fileID: 4038054482161023517, guid: 17558833296098b4eb1d4b26da160318, type: 3}
       propertyPath: Effects.Array.data[7]
-      value: 2289623262343200782
+      value: 2289623262343200778
       objectReference: {fileID: 0}
     - target: {fileID: 4038054482161023517, guid: 17558833296098b4eb1d4b26da160318, type: 3}
       propertyPath: Effects.Array.data[8]
-      value: 2289623262343200772
+      value: 2289623262343200782
       objectReference: {fileID: 0}
     - target: {fileID: 4038054482161023517, guid: 17558833296098b4eb1d4b26da160318, type: 3}
       propertyPath: Effects.Array.data[9]
-      value: 2289623262343200773
+      value: 2289623262343200772
       objectReference: {fileID: 0}
     - target: {fileID: 4038054482161023517, guid: 17558833296098b4eb1d4b26da160318, type: 3}
       propertyPath: Effects.Array.data[10]
-      value: 2289623262343200774
+      value: 2289623262343200773
       objectReference: {fileID: 0}
     - target: {fileID: 4038054482161023517, guid: 17558833296098b4eb1d4b26da160318, type: 3}
       propertyPath: Effects.Array.data[11]
-      value: 2289623262343200771
+      value: 2289623262343200774
       objectReference: {fileID: 0}
     - target: {fileID: 4038054482161023517, guid: 17558833296098b4eb1d4b26da160318, type: 3}
       propertyPath: Effects.Array.data[12]
-      value: 2289623262343200777
+      value: 2289623262343200771
       objectReference: {fileID: 0}
     - target: {fileID: 4038054482161023517, guid: 17558833296098b4eb1d4b26da160318, type: 3}
       propertyPath: Effects.Array.data[13]
-      value: 2289623262343200770
+      value: 2289623262343200777
       objectReference: {fileID: 0}
     - target: {fileID: 4038054482161023517, guid: 17558833296098b4eb1d4b26da160318, type: 3}
       propertyPath: Effects.Array.data[14]
-      value: 2289623262343200779
+      value: 2289623262343200770
       objectReference: {fileID: 0}
     - target: {fileID: 4038054482161023517, guid: 17558833296098b4eb1d4b26da160318, type: 3}
       propertyPath: Effects.Array.data[15]
-      value: 2289623262343200780
+      value: 2289623262343200779
       objectReference: {fileID: 0}
     - target: {fileID: 4038054482161023517, guid: 17558833296098b4eb1d4b26da160318, type: 3}
       propertyPath: Effects.Array.data[16]
-      value: 2289623255267147807
+      value: 2289623262343200780
       objectReference: {fileID: 0}
     - target: {fileID: 4038054482161023517, guid: 17558833296098b4eb1d4b26da160318, type: 3}
       propertyPath: Effects.Array.data[17]
-      value: 2289623255267147833
+      value: 2289623277186580484
       objectReference: {fileID: 0}
     - target: {fileID: 4038054482161023517, guid: 17558833296098b4eb1d4b26da160318, type: 3}
       propertyPath: Effects.Array.data[18]
+      value: 2289623255267147833
+      objectReference: {fileID: 0}
+    - target: {fileID: 4038054482161023517, guid: 17558833296098b4eb1d4b26da160318, type: 3}
+      propertyPath: Effects.Array.data[19]
       value: 2289623262343200781
       objectReference: {fileID: 0}
     - target: {fileID: 4038054482161023517, guid: 17558833296098b4eb1d4b26da160318, type: 3}
@@ -6977,6 +6985,14 @@ PrefabInstance:
       value: Assembly-CSharp Art.VFX.Scripts.Effects.EffectWait
       objectReference: {fileID: 0}
     - target: {fileID: 4038054482161023517, guid: 17558833296098b4eb1d4b26da160318, type: 3}
+      propertyPath: managedReferences[2289623277186580481]
+      value: Assembly-CSharp EventSystem.Effects.EffectPlaySound
+      objectReference: {fileID: 0}
+    - target: {fileID: 4038054482161023517, guid: 17558833296098b4eb1d4b26da160318, type: 3}
+      propertyPath: managedReferences[2289623277186580484]
+      value: Assembly-CSharp EventSystem.Effects.EffectFadeOutMusic
+      objectReference: {fileID: 0}
+    - target: {fileID: 4038054482161023517, guid: 17558833296098b4eb1d4b26da160318, type: 3}
       propertyPath: managedReferences[2289623255267147806].Time
       value: 3
       objectReference: {fileID: 0}
@@ -7013,6 +7029,14 @@ PrefabInstance:
       value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 4038054482161023517, guid: 17558833296098b4eb1d4b26da160318, type: 3}
+      propertyPath: managedReferences[2289623277186580484].Time
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4038054482161023517, guid: 17558833296098b4eb1d4b26da160318, type: 3}
+      propertyPath: managedReferences[2289623277186580481].Sound
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4038054482161023517, guid: 17558833296098b4eb1d4b26da160318, type: 3}
       propertyPath: managedReferences[2289623255267147833].Active
       value: 1
       objectReference: {fileID: 0}
@@ -7027,6 +7051,10 @@ PrefabInstance:
     - target: {fileID: 4038054482161023517, guid: 17558833296098b4eb1d4b26da160318, type: 3}
       propertyPath: managedReferences[2289623262343200780].Dialog
       value: Another f*cking great day...
+      objectReference: {fileID: 0}
+    - target: {fileID: 4038054482161023517, guid: 17558833296098b4eb1d4b26da160318, type: 3}
+      propertyPath: managedReferences[2289623277186580481].Volume
+      value: 0.025
       objectReference: {fileID: 0}
     - target: {fileID: 4038054482161023517, guid: 17558833296098b4eb1d4b26da160318, type: 3}
       propertyPath: managedReferences[2289623255267147806].Enabled
@@ -7109,6 +7137,14 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4038054482161023517, guid: 17558833296098b4eb1d4b26da160318, type: 3}
+      propertyPath: managedReferences[2289623277186580481].Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4038054482161023517, guid: 17558833296098b4eb1d4b26da160318, type: 3}
+      propertyPath: managedReferences[2289623277186580484].Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4038054482161023517, guid: 17558833296098b4eb1d4b26da160318, type: 3}
       propertyPath: managedReferences[2289623255267147806].Offset.x
       value: 0
       objectReference: {fileID: 0}
@@ -7122,7 +7158,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4038054482161023517, guid: 17558833296098b4eb1d4b26da160318, type: 3}
       propertyPath: managedReferences[2289623255267147807].Duration
-      value: 2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4038054482161023517, guid: 17558833296098b4eb1d4b26da160318, type: 3}
       propertyPath: managedReferences[2289623255267147834].Duration
@@ -7238,7 +7274,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5053080628360836043, guid: 17558833296098b4eb1d4b26da160318, type: 3}
       propertyPath: Effects.Array.size
-      value: 25
+      value: 28
+      objectReference: {fileID: 0}
+    - target: {fileID: 5053080628360836043, guid: 17558833296098b4eb1d4b26da160318, type: 3}
+      propertyPath: Effects.Array.data[1]
+      value: 2289623255267147784
+      objectReference: {fileID: 0}
+    - target: {fileID: 5053080628360836043, guid: 17558833296098b4eb1d4b26da160318, type: 3}
+      propertyPath: Effects.Array.data[2]
+      value: 2289623255267147785
+      objectReference: {fileID: 0}
+    - target: {fileID: 5053080628360836043, guid: 17558833296098b4eb1d4b26da160318, type: 3}
+      propertyPath: Effects.Array.data[3]
+      value: 2289623255267147777
       objectReference: {fileID: 0}
     - target: {fileID: 5053080628360836043, guid: 17558833296098b4eb1d4b26da160318, type: 3}
       propertyPath: Effects.Array.data[4]
@@ -7250,78 +7298,90 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5053080628360836043, guid: 17558833296098b4eb1d4b26da160318, type: 3}
       propertyPath: Effects.Array.data[6]
-      value: 2289623255267147795
+      value: 2289623277186580483
       objectReference: {fileID: 0}
     - target: {fileID: 5053080628360836043, guid: 17558833296098b4eb1d4b26da160318, type: 3}
       propertyPath: Effects.Array.data[7]
-      value: 2289623255267147794
+      value: 2289623255267147795
       objectReference: {fileID: 0}
     - target: {fileID: 5053080628360836043, guid: 17558833296098b4eb1d4b26da160318, type: 3}
       propertyPath: Effects.Array.data[8]
-      value: 2289623255267147778
+      value: 2289623255267147794
       objectReference: {fileID: 0}
     - target: {fileID: 5053080628360836043, guid: 17558833296098b4eb1d4b26da160318, type: 3}
       propertyPath: Effects.Array.data[9]
-      value: 2289623255267147782
+      value: 2289623255267147778
       objectReference: {fileID: 0}
     - target: {fileID: 5053080628360836043, guid: 17558833296098b4eb1d4b26da160318, type: 3}
       propertyPath: Effects.Array.data[10]
-      value: 2289623255267147792
+      value: 2289623255267147782
       objectReference: {fileID: 0}
     - target: {fileID: 5053080628360836043, guid: 17558833296098b4eb1d4b26da160318, type: 3}
       propertyPath: Effects.Array.data[11]
-      value: 2289623255267147796
+      value: 2289623277186580480
       objectReference: {fileID: 0}
     - target: {fileID: 5053080628360836043, guid: 17558833296098b4eb1d4b26da160318, type: 3}
       propertyPath: Effects.Array.data[12]
-      value: 2289623255267147797
+      value: 2289623255267147792
       objectReference: {fileID: 0}
     - target: {fileID: 5053080628360836043, guid: 17558833296098b4eb1d4b26da160318, type: 3}
       propertyPath: Effects.Array.data[13]
-      value: 2289623255267147800
+      value: 2289623277186580482
       objectReference: {fileID: 0}
     - target: {fileID: 5053080628360836043, guid: 17558833296098b4eb1d4b26da160318, type: 3}
       propertyPath: Effects.Array.data[14]
-      value: 2289623255267147801
+      value: 2289623255267147796
       objectReference: {fileID: 0}
     - target: {fileID: 5053080628360836043, guid: 17558833296098b4eb1d4b26da160318, type: 3}
       propertyPath: Effects.Array.data[15]
-      value: 2289623255267147786
+      value: 2289623255267147797
       objectReference: {fileID: 0}
     - target: {fileID: 5053080628360836043, guid: 17558833296098b4eb1d4b26da160318, type: 3}
       propertyPath: Effects.Array.data[16]
-      value: 2289623255267147787
+      value: 2289623255267147800
       objectReference: {fileID: 0}
     - target: {fileID: 5053080628360836043, guid: 17558833296098b4eb1d4b26da160318, type: 3}
       propertyPath: Effects.Array.data[17]
-      value: 2289623255267147779
+      value: 2289623255267147801
       objectReference: {fileID: 0}
     - target: {fileID: 5053080628360836043, guid: 17558833296098b4eb1d4b26da160318, type: 3}
       propertyPath: Effects.Array.data[18]
-      value: 2289623255267147780
+      value: 2289623255267147786
       objectReference: {fileID: 0}
     - target: {fileID: 5053080628360836043, guid: 17558833296098b4eb1d4b26da160318, type: 3}
       propertyPath: Effects.Array.data[19]
-      value: 2289623255267147798
+      value: 2289623255267147787
       objectReference: {fileID: 0}
     - target: {fileID: 5053080628360836043, guid: 17558833296098b4eb1d4b26da160318, type: 3}
       propertyPath: Effects.Array.data[20]
-      value: 2289623255267147799
+      value: 2289623255267147779
       objectReference: {fileID: 0}
     - target: {fileID: 5053080628360836043, guid: 17558833296098b4eb1d4b26da160318, type: 3}
       propertyPath: Effects.Array.data[21]
-      value: 2289623255267147804
+      value: 2289623255267147780
       objectReference: {fileID: 0}
     - target: {fileID: 5053080628360836043, guid: 17558833296098b4eb1d4b26da160318, type: 3}
       propertyPath: Effects.Array.data[22]
-      value: 2289623255267147803
+      value: 2289623255267147798
       objectReference: {fileID: 0}
     - target: {fileID: 5053080628360836043, guid: 17558833296098b4eb1d4b26da160318, type: 3}
       propertyPath: Effects.Array.data[23]
-      value: 2289623255267147805
+      value: 2289623255267147799
       objectReference: {fileID: 0}
     - target: {fileID: 5053080628360836043, guid: 17558833296098b4eb1d4b26da160318, type: 3}
       propertyPath: Effects.Array.data[24]
+      value: 2289623255267147804
+      objectReference: {fileID: 0}
+    - target: {fileID: 5053080628360836043, guid: 17558833296098b4eb1d4b26da160318, type: 3}
+      propertyPath: Effects.Array.data[25]
+      value: 2289623255267147803
+      objectReference: {fileID: 0}
+    - target: {fileID: 5053080628360836043, guid: 17558833296098b4eb1d4b26da160318, type: 3}
+      propertyPath: Effects.Array.data[26]
+      value: 2289623255267147805
+      objectReference: {fileID: 0}
+    - target: {fileID: 5053080628360836043, guid: 17558833296098b4eb1d4b26da160318, type: 3}
+      propertyPath: Effects.Array.data[27]
       value: 2289623255267147802
       objectReference: {fileID: 0}
     - target: {fileID: 5053080628360836043, guid: 17558833296098b4eb1d4b26da160318, type: 3}
@@ -7377,6 +7437,18 @@ PrefabInstance:
       value: Assembly-CSharp Art.VFX.Scripts.Effects.EffectSetObjectActive
       objectReference: {fileID: 0}
     - target: {fileID: 5053080628360836043, guid: 17558833296098b4eb1d4b26da160318, type: 3}
+      propertyPath: managedReferences[2289623277186580480]
+      value: Assembly-CSharp EventSystem.Effects.EffectPlaySound
+      objectReference: {fileID: 0}
+    - target: {fileID: 5053080628360836043, guid: 17558833296098b4eb1d4b26da160318, type: 3}
+      propertyPath: managedReferences[2289623277186580482]
+      value: Assembly-CSharp EventSystem.Effects.EffectPlaySound
+      objectReference: {fileID: 0}
+    - target: {fileID: 5053080628360836043, guid: 17558833296098b4eb1d4b26da160318, type: 3}
+      propertyPath: managedReferences[2289623277186580483]
+      value: Assembly-CSharp EventSystem.Effects.EffectPlayMusic
+      objectReference: {fileID: 0}
+    - target: {fileID: 5053080628360836043, guid: 17558833296098b4eb1d4b26da160318, type: 3}
       propertyPath: managedReferences[2289623255267147781].Name
       value: sadIdle
       objectReference: {fileID: 0}
@@ -7391,6 +7463,30 @@ PrefabInstance:
     - target: {fileID: 5053080628360836043, guid: 17558833296098b4eb1d4b26da160318, type: 3}
       propertyPath: managedReferences[2289623255267147803].Name
       value: sadIdle
+      objectReference: {fileID: 0}
+    - target: {fileID: 5053080628360836043, guid: 17558833296098b4eb1d4b26da160318, type: 3}
+      propertyPath: managedReferences[2289623277186580480].Sound
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5053080628360836043, guid: 17558833296098b4eb1d4b26da160318, type: 3}
+      propertyPath: managedReferences[2289623277186580482].Sound
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5053080628360836043, guid: 17558833296098b4eb1d4b26da160318, type: 3}
+      propertyPath: managedReferences[2289623277186580483].Music
+      value: 
+      objectReference: {fileID: 8300000, guid: a602d4300abc653468a333aba0b59e2f, type: 3}
+    - target: {fileID: 5053080628360836043, guid: 17558833296098b4eb1d4b26da160318, type: 3}
+      propertyPath: managedReferences[2289623277186580480].Volume
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5053080628360836043, guid: 17558833296098b4eb1d4b26da160318, type: 3}
+      propertyPath: managedReferences[2289623277186580482].Volume
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5053080628360836043, guid: 17558833296098b4eb1d4b26da160318, type: 3}
+      propertyPath: managedReferences[2289623277186580483].Volume
+      value: 0.025
       objectReference: {fileID: 0}
     - target: {fileID: 5053080628360836043, guid: 17558833296098b4eb1d4b26da160318, type: 3}
       propertyPath: managedReferences[2289623255267147777].Enabled
@@ -7442,6 +7538,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5053080628360836043, guid: 17558833296098b4eb1d4b26da160318, type: 3}
       propertyPath: managedReferences[2289623255267147808].Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5053080628360836043, guid: 17558833296098b4eb1d4b26da160318, type: 3}
+      propertyPath: managedReferences[2289623277186580480].Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5053080628360836043, guid: 17558833296098b4eb1d4b26da160318, type: 3}
+      propertyPath: managedReferences[2289623277186580482].Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5053080628360836043, guid: 17558833296098b4eb1d4b26da160318, type: 3}
+      propertyPath: managedReferences[2289623277186580483].Enabled
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5053080628360836043, guid: 17558833296098b4eb1d4b26da160318, type: 3}

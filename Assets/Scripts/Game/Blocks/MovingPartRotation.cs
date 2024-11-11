@@ -1,5 +1,6 @@
 ﻿using System;
 using DG.Tweening;
+using MatteoBenaissaLibrary.AudioManager;
 using UnityEngine;
 
 namespace Game.Blocks
@@ -20,10 +21,12 @@ namespace Game.Blocks
 
         [Header("Visual")] 
         [SerializeField] private GameObject _handle;
+        [SerializeField] private bool _makeGlowAtStart;
 
         private Vector3 _baseHandleLocalScale;
         private Vector3 _baseLocalRotation;
         private float _currentRotationAmount;
+        private bool _doStartGlow;
 
         private void Awake()
         {
@@ -33,14 +36,31 @@ namespace Game.Blocks
 
         protected override void InternalStart()
         {
-            
+            _doStartGlow = _makeGlowAtStart;
         }
 
         protected override void InternalPressed()
         {
+            _doStartGlow = false;
+            
             _rotationTween?.Kill();
             DisableAllPaths();
             CurrentStep = -1;
+            
+            SoundManager.Instance.PlaySound(SoundEnum.unlock, 0.03f);
+        }
+
+        private float _time;
+        protected override void InternalUpdate()
+        {
+            if (_doStartGlow == false) return;
+            
+            _time += Time.deltaTime * 4;
+            float glow = Mathf.Sin(_time) * 0.5f + 0.5f;
+            foreach (Renderer part in GlowingParts)
+            {
+                part.material.SetFloat(Glowing, glow);
+            }
         }
 
         private Tween _rotationTween;
@@ -55,6 +75,8 @@ namespace Game.Blocks
             {
                 SetStep(step);
             });
+            
+            SoundManager.Instance.PlaySound(SoundEnum.unlock, 0.025f);
         }
 
         protected override void ManageDirection(Vector2 direction)
@@ -123,6 +145,8 @@ namespace Game.Blocks
         
         private void SetHandle(bool active)
         {
+            SoundManager.Instance.PlaySound(SoundEnum.slidePartClose, 0.025f);
+
             _handle.transform.DOKill();
             _handle.transform.DOScale(active ? _baseHandleLocalScale : Vector3.zero, 0.4f).SetEase(Ease.InBack);
         }

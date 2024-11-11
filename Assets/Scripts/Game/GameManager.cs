@@ -102,7 +102,7 @@ namespace Game
 
         private void NextLevel()
         {
-            Debug.Log("NEXT LEVEL");
+            LevelManager.Instance.NextLevel();
         }
     }
 }

@@ -4,6 +4,7 @@ using DG.Tweening;
 using Game;
 using Game.Blocks;
 using IshLib.Pathfinding;
+using MatteoBenaissaLibrary.AudioManager;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
@@ -141,6 +142,8 @@ public class PlayerController : MonoBehaviour
                 _moveSequence.JoinCallback(() => GameManager.Instance.EndLevel());
             }
             
+            //sound
+            _moveSequence.JoinCallback(() => SoundManager.Instance.PlaySound(SoundEnum.walkStep, 0.03f));
         }
         _moveSequence.AppendCallback(() => _animator.SetBool(Walking, false));
         
