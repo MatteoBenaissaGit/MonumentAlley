@@ -23,7 +23,7 @@ namespace DefaultNamespace
             
             Vector2 screenPoint = Camera.main.WorldToScreenPoint(point);
             _touchCircle.transform.position = screenPoint;
-            _touchCircleSprite.transform.position = point + Vector3.up * 0.1f;
+            _touchCircleSprite.transform.position = point + Vector3.up * 0.025f;
 
             _touchCircle.transform.DOKill();
             _touchCircle.transform.localScale = Vector3.zero;

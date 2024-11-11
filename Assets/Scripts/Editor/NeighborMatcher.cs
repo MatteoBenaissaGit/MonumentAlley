@@ -30,6 +30,7 @@ namespace Editor
                 List<BlockController> blockControllers = GetBlockControllersFromSelection();
                 foreach (BlockController block in blockControllers)
                 {
+                    Undo.RecordObject(block, "ClearNeighbor");
                     block.ClearNeighborsList(true);
                     EditorUtility.SetDirty(block);
                 }
@@ -92,6 +93,7 @@ namespace Editor
             List<BlockController> blockControllers = GetBlockControllersFromSelection();
             foreach (BlockController block in blockControllers)
             {
+                Undo.RecordObject(block, "DetectNeighbors");
                 block.ClearNeighborsList();
                 
                 Vector3[] directions = {Vector3.forward, Vector3.back, Vector3.left, Vector3.right};
@@ -103,6 +105,7 @@ namespace Editor
                             && hit.transform.gameObject.TryGetComponent(out BlockController neighborBlock)
                             && block.Paths.Exists(x => x.Block == neighborBlock) == false)
                         {
+                            Undo.RecordObject(neighborBlock, "DetectNeighbors");
                             block.AddNeighbors(neighborBlock);
                         }
                     }

@@ -47,7 +47,7 @@ namespace Game.Blocks
             DisableAllPaths();
             CurrentStep = -1;
             
-            SoundManager.Instance.PlaySound(SoundEnum.unlock, 0.03f);
+            SoundManager.Instance?.PlaySound(SoundEnum.unlock, 0.03f);
         }
 
         private float _time;
@@ -68,6 +68,7 @@ namespace Game.Blocks
         {
             float closest = Mathf.Round(_currentRotationAmount / 90) * 90;
             int step = (int)closest / 90;
+            if (step == 4) step = 0;
          
             Quaternion rotation = Quaternion.Euler(new Vector3(_rotationAxis.x,_rotationAxis.y,_rotationAxis.z) * (step * 90) + _baseLocalRotation);
             transform.DOKill();
@@ -76,7 +77,7 @@ namespace Game.Blocks
                 SetStep(step);
             });
             
-            SoundManager.Instance.PlaySound(SoundEnum.unlock, 0.025f);
+            SoundManager.Instance?.PlaySound(SoundEnum.unlock, 0.025f);
         }
 
         protected override void ManageDirection(Vector2 direction)
@@ -145,7 +146,7 @@ namespace Game.Blocks
         
         private void SetHandle(bool active)
         {
-            SoundManager.Instance.PlaySound(SoundEnum.slidePartClose, 0.025f);
+            SoundManager.Instance?.PlaySound(SoundEnum.slidePartClose, 0.025f);
 
             _handle.transform.DOKill();
             _handle.transform.DOScale(active ? _baseHandleLocalScale : Vector3.zero, 0.4f).SetEase(Ease.InBack);

@@ -1363,7 +1363,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isPersistant: 1
-  _levelAmount: 1
+  _levelAmount: 2
 --- !u!4 &983392807
 Transform:
   m_ObjectHideFlags: 0

@@ -142,8 +142,14 @@ public class PlayerController : MonoBehaviour
                 _moveSequence.JoinCallback(() => GameManager.Instance.EndLevel());
             }
             
+            //button
+            if (pathBlock.Button != null)
+            {
+                _moveSequence.JoinCallback(() => pathBlock.Button.Click());
+            }
+            
             //sound
-            _moveSequence.JoinCallback(() => SoundManager.Instance.PlaySound(SoundEnum.walkStep, 0.03f));
+            _moveSequence.JoinCallback(() => SoundManager.Instance?.PlaySound(SoundEnum.walkStep, 0.03f));
         }
         _moveSequence.AppendCallback(() => _animator.SetBool(Walking, false));
         
@@ -173,7 +179,7 @@ public class PlayerController : MonoBehaviour
         
         foreach (BlockPath path in currentBlock.Paths)
         {
-            if (path.IsActive == false) continue;
+            if (path.IsActive == false || path.Block.Enabled == false) continue;
             neighbors.Add(path.Block);
         }
         
@@ -189,7 +195,7 @@ public class PlayerController : MonoBehaviour
     {
         Vector3 origin = transform.position + Vector3.up;
         Vector3 direction = Vector3.down;
-        if (Physics.Raycast(origin,direction, out RaycastHit hit, 1))
+        if (Physics.Raycast(origin,direction, out RaycastHit hit, 2))
         {
             if (hit.transform.gameObject.TryGetComponent(out BlockController block) == false)
             {
@@ -205,7 +211,7 @@ public class PlayerController : MonoBehaviour
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.red;
-        Gizmos.DrawLine(transform.position, transform.position + Vector3.down);
+        Gizmos.DrawLine(transform.position + Vector3.up, transform.position + Vector3.down * 2);
     }
 
 #endif

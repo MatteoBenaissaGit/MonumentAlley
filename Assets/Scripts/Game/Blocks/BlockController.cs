@@ -50,6 +50,9 @@ namespace Game
         public BlockType Type => _type;
         public bool LadderTop => _ladderTop;
         public MovingPart MovingPart { get; set; }
+        public BlockButton Button => _button;
+
+        [field: SerializeField] public bool Enabled { get; set; } = true;
     
         [SerializeField] private Vector3 _walkPoint;
         [SerializeField] private bool _localRelative;
@@ -57,6 +60,7 @@ namespace Game
         [SerializeField] private BlockType _type;
         [SerializeField] private bool _ladderTop;
         [SerializeField] private Vector3 _ladderTopWalkPoint;
+        [SerializeField] private BlockButton _button;
 
         private Dictionary<BlockController, BlockPath> _pathsToBlocks;
 
@@ -131,6 +135,12 @@ namespace Game
         {
             DrawWalkPoint();
             DrawNeighborsConnections();
+
+            if (Enabled == false)
+            {
+                Gizmos.color = new Color(1f, 0f, 0f, 0.45f);
+                Gizmos.DrawCube(transform.position, Vector3.one * 1.001f);
+            }
         }
 
         private void DrawNeighborsConnections()

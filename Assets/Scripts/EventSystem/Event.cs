@@ -27,6 +27,7 @@ namespace EventSystem
         {
             foreach (Effect effect in Effects)
             {
+                if (effect.Enabled == false) continue;
                 yield return effect.Execute(this, gameObjectToExecute);
             }
             OnEnd?.Invoke();

@@ -8,6 +8,7 @@ namespace EventSystem.Effects
     {
         public GameObject ObjectToMove;
         public Vector3 Offset;
+        public Ease Ease = Ease.Linear;
         public float Time;
         
         public override Color EffectColorInEditor { get; } = new Color(0.97f, 0.29f, 1f);
@@ -24,8 +25,10 @@ namespace EventSystem.Effects
                 yield break;
             }
             
+            if (Ease == Ease.Unset) Ease = Ease.Linear;
+            
             ObjectToMove.transform.DOComplete();
-            ObjectToMove.transform.DOLocalMove(ObjectToMove.transform.localPosition + Offset, Time);
+            ObjectToMove.transform.DOLocalMove(ObjectToMove.transform.localPosition + Offset, Time).SetEase(Ease);
             
             yield return new WaitForSecondsRealtime(0f);
         }
