@@ -1841,6 +1841,10 @@ MonoBehaviour:
   - {fileID: 8300000, guid: fc0b343b8d10c4a4d91a3098288f582e, type: 3}
   - {fileID: 8300000, guid: c117223883d67ea4d9d012867c19601a, type: 3}
   - {fileID: 8300000, guid: 02f729b85747e1741ad0c1f09f09c7f9, type: 3}
+  - {fileID: 8300000, guid: a80778e129244e74291437a4235b9dfd, type: 3}
+  - {fileID: 8300000, guid: 8a6b4e6c9a9a27f4781b84e1a388bde9, type: 3}
+  - {fileID: 8300000, guid: de7873cd156a33c42a518617cdac8005, type: 3}
+  - {fileID: 8300000, guid: e9c1b5015d12a4d419b697f55be4e5a2, type: 3}
   _soundEnumPath: Assets/Scripts/AudioManager/
 --- !u!114 &1896695943
 MonoBehaviour:

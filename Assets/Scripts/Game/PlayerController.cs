@@ -149,7 +149,7 @@ public class PlayerController : MonoBehaviour
             }
             
             //sound
-            _moveSequence.JoinCallback(() => SoundManager.Instance?.PlaySound(SoundEnum.walkStep, 0.03f));
+            _moveSequence.JoinCallback(() => SoundManager.Instance?.PlaySound(SoundEnum.RunningLoop_1, 0.03f));
         }
         _moveSequence.AppendCallback(() => _animator.SetBool(Walking, false));
         

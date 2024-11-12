@@ -8,4 +8,8 @@ public enum SoundEnum
 	slidePartClose,
 	walkStep,
 	unlock,
+	PlainMusic,
+	coffeeMachine,
+	RunningLoop_1,
+	Pop,
 }

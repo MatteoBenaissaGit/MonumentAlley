@@ -1,4 +1,6 @@
 ﻿using DG.Tweening;
+using Game;
+using MatteoBenaissaLibrary.AudioManager;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -19,6 +21,8 @@ namespace DefaultNamespace
 
         public void Play(Vector3 point, Vector3 up)
         {
+            SoundManager.Instance?.PlaySound(SoundEnum.Pop, 0.01f);
+            
             _touchCircleSprite.transform.forward = up;
             
             Vector2 screenPoint = Camera.main.WorldToScreenPoint(point);
