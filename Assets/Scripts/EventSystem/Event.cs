@@ -15,6 +15,8 @@ namespace EventSystem
         
         private void OnEnable()
         {
+            Effects.Remove(null);
+            
             Effects.ForEach(x => x.Event = this);
         }
 
