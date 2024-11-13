@@ -10,6 +10,7 @@ namespace MatteoBenaissaLibrary.AudioManager
         [field:SerializeField] public AudioClip GameplayMusic { get; private set; }
 
         [SerializeField] private bool _startMusicOnPlay;
+        [SerializeField] private float _baseGlobalVolume = 3f;
 
         public float GlobalVolume
         {
@@ -28,7 +29,7 @@ namespace MatteoBenaissaLibrary.AudioManager
         
         protected override void InternalAwake()
         {
-            GlobalVolume = 3f;
+            GlobalVolume = _baseGlobalVolume;
 
             if (_startMusicOnPlay)
             {

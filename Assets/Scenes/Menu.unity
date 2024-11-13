@@ -1862,6 +1862,7 @@ MonoBehaviour:
   <MenuMusic>k__BackingField: {fileID: 0}
   <GameplayMusic>k__BackingField: {fileID: 0}
   _startMusicOnPlay: 0
+  _baseGlobalVolume: 25
   _musicSource: {fileID: 1896695941}
 --- !u!4 &1896695944
 Transform:
