@@ -208,6 +208,10 @@ PrefabInstance:
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6746756409918628339, guid: d2903749b18790d4cb454d5f55ab1837, type: 3}
+      propertyPath: <Enabled>k__BackingField
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6746756409918628339, guid: d2903749b18790d4cb454d5f55ab1837, type: 3}
       propertyPath: _paths.Array.data[0].Block
       value: 
       objectReference: {fileID: 763216173555331309}
@@ -365,6 +369,10 @@ PrefabInstance:
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6746756409918628339, guid: d2903749b18790d4cb454d5f55ab1837, type: 3}
+      propertyPath: <Enabled>k__BackingField
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6746756409918628339, guid: d2903749b18790d4cb454d5f55ab1837, type: 3}
       propertyPath: _paths.Array.data[0].Block
       value: 
       objectReference: {fileID: 6933332941051034461}
@@ -455,6 +463,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6746756409918628339, guid: d2903749b18790d4cb454d5f55ab1837, type: 3}
       propertyPath: _paths.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6746756409918628339, guid: d2903749b18790d4cb454d5f55ab1837, type: 3}
+      propertyPath: <Enabled>k__BackingField
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6746756409918628339, guid: d2903749b18790d4cb454d5f55ab1837, type: 3}

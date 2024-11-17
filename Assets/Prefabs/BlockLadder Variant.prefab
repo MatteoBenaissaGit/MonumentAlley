@@ -590,7 +590,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6746756409918628339, guid: d2903749b18790d4cb454d5f55ab1837, type: 3}
       propertyPath: _paths.Array.size
-      value: 2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6746756409918628339, guid: d2903749b18790d4cb454d5f55ab1837, type: 3}
       propertyPath: _stairTopWalkPoint.y
@@ -610,6 +610,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6746756409918628339, guid: d2903749b18790d4cb454d5f55ab1837, type: 3}
       propertyPath: _paths.Array.data[1].IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6746756409918628339, guid: d2903749b18790d4cb454d5f55ab1837, type: 3}
+      propertyPath: _paths.Array.data[0].ForceDirection
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
