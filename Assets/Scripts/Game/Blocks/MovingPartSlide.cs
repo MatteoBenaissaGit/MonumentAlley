@@ -1,5 +1,6 @@
 ﻿using System;
 using DG.Tweening;
+using MatteoBenaissaLibrary.AudioManager;
 using UnityEngine;
 
 namespace Game.Blocks
@@ -41,6 +42,8 @@ namespace Game.Blocks
             _slideTween?.Kill();
             DisableAllPaths();
             CurrentStep = -1;
+            
+            SoundManager.Instance?.PlaySound(SoundEnum.unlock, 0.025f);
         }
 
         private Tween _slideTween;
@@ -60,6 +63,8 @@ namespace Game.Blocks
             {
                 SetStep(step);
             });
+            
+            SoundManager.Instance?.PlaySound(SoundEnum.unlock, 0.025f);
         }
 
         protected override void SetStep(int step)

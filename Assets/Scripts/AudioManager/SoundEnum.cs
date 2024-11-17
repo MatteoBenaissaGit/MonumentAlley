@@ -12,4 +12,5 @@ public enum SoundEnum
 	coffeeMachine,
 	RunningLoop_1,
 	Pop,
+	DoorOpen,
 }

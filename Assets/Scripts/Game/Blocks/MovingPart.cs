@@ -18,9 +18,6 @@ namespace Game.Blocks
     
     public abstract class MovingPart : MonoBehaviour
     {
-        [Header("Visual")] 
-        [SerializeField] private List<Renderer> _glowingParts;
-
         [Header("Blocks")] 
         [SerializeField] protected List<BlockMoveStepPath> ActiveBlockSteps;
         [SerializeField] protected int NumberOfSteps;
@@ -35,8 +32,12 @@ namespace Game.Blocks
 
         protected static readonly int Glowing = Shader.PropertyToID("_Glowing");
 
+        private List<Renderer> _glowingParts = new List<Renderer>();
+
         private void Start()
         {
+            _glowingParts.AddRange(GetComponentsInChildren<Renderer>());
+            
             SetStep(StartStep);
             BlockController[] blocks = GetComponentsInChildren<BlockController>();
             foreach (BlockController block in blocks)
